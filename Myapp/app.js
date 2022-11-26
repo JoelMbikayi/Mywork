@@ -6,12 +6,12 @@ const bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-const etudiantRoutes = require('/FinalWork/Myapp/routes/etudiant.route');
-const coordoRoutes = require('/FinalWork/Myapp/routes/coordonnateur.route');
-const PromotionRoutes = require('/FinalWork/Myapp/routes/promotion.route');
-const CompteRoutes = require('/FinalWork/Myapp/routes/compte.route');
-const CoursRoutes = require('/FinalWork/Myapp/routes/cours.route');
-const CoordonneesRoutes = require('/FinalWork/Myapp/routes/coordonnees.route');
+const etudiantRoutes = require('/FinalWork/Mywork/Myapp/routes/etudiant.route');
+const coordoRoutes = require('/Finalwork/Mywork/Myapp/routes/coordonnateur.route');
+const PromotionRoutes = require('/Finalwork/Mywork/Myapp/routes/promotion.route');
+const CompteRoutes = require('/Finalwork/Mywork/Myapp/routes/compte.route');
+const CoursRoutes = require('/Finalwork/Mywork/Myapp/routes/cours.route');
+const CoordonneesRoutes = require('/Finalwork/Mywork/Myapp/routes/coordonnees.route');
 // using as middleware
 
 var indexRouter = require('./routes/index');
