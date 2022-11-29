@@ -6,8 +6,7 @@ Bracelet.findAll(function(err, seance) {
   console.log('controller')
   if (err)
   res.send(err);
-  console.log('res', seance);
-  res.send(seance);
+  res.json({result : seance});
 });
 };
 exports.create = function(req, res) {
@@ -33,8 +32,8 @@ Seance.findById(req.params.idSeance, function(err, seance) {
 };
 exports.delete = function(req, res) {
 Seance.delete( req.params.idSeance, function(err, seance) {
-  if (err)
-  res.send(err);
-  res.json({ error:false, message: 'seance successfully deleted' });
-});
+    if (err)
+    res.send(err);
+    res.json({ error:false, message: 'seance successfully deleted' });
+  });
 };

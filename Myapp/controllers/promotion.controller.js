@@ -7,8 +7,7 @@ Promotion.findAll(function(err, promotion) {
   console.log('controller')
   if (err)
   res.send(err);
-  console.log('res', promotion);
-  res.send(promotion);
+  res.json({result : promotion});
 });
 };
 exports.create = function(req, res) {

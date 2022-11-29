@@ -5,8 +5,9 @@ Etudiant.findAll(function(err, etudiant) {
   console.log('controller')
   if (err)
   res.send(err);
-  console.log('res', etudiant);
-  res.send(etudiant);
+  //console.log('res', etudiant);
+  res.json({result : etudiant});
+
 });
 };
 exports.create = function(req, res) {

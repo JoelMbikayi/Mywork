@@ -2,15 +2,16 @@
 const Coordonnateur = require('../models/coordonnateur.model');
 
 exports.findAll = function(req, res) {
-Coordonnateur.findAll(function(err, coordonnateur) {
- // console.log('controller')
-  if (err)
-  res.send(err);
-  //console.log('res', coordonnateur);
- // res.send(coordonnateur);
+  Coordonnateur.findAll(function(err, coordonnateur) {
+    console.log('controller')
+    if (err)
+    res.send(err);
+    //console.log('res', etudiant);
+   // res.responseType = 'json';
+    res.json(coordonnateur);
   
-});
-};
+  });
+  };
 exports.create = function(req, res) {
 const new_coordonnateur = new Coordonnateur(req.body);
 //handles null error

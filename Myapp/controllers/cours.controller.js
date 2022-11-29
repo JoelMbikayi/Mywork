@@ -6,8 +6,7 @@ Cours.findAll(function(err, cours) {
   console.log('controller')
   if (err)
   res.send(err);
-  console.log('res', cours);
-  res.send(cours);
+  res.json({result : cours});
 });
 };
 exports.create = function(req, res) {

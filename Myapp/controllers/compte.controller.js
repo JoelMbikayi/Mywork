@@ -6,8 +6,7 @@ Compte.findAll(function(err, compte) {
   console.log('controller')
   if (err)
   res.send(err);
-  console.log('res', compte);
-  res.send(compte);
+  res.json({result : compte});
 });
 };
 exports.create = function(req, res) {

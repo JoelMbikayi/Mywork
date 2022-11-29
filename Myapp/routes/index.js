@@ -81,7 +81,7 @@ router.get('/promotion2', function(req, res, next) {
   });
 router.get('/secretaire', function(req, res, next) {
 
-      res.render('secretaire',{ coordonnateurs : Coordonnateur.findAll() });
+      res.render('secretaire',{  });
     
   });
  //console.log(Coordonnateurss.findAll()); 

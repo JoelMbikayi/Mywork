@@ -1,10 +1,12 @@
 var createError = require('http-errors');
 var express = require('express');
 const session = require('express-session');
+const cors = require('cors');
 var path = require('path');
 const bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
 
 const etudiantRoutes = require('/FinalWork/Mywork/Myapp/routes/etudiant.route');
 const coordoRoutes = require('/Finalwork/Mywork/Myapp/routes/coordonnateur.route');
@@ -30,7 +32,7 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+//app.set('view engine', 'pug');
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
@@ -41,6 +43,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'static')));
+app.use(express.static(path.join(__dirname, "js")));
 app.use(session({
 	secret: 'secret',
 	resave: true,
@@ -74,10 +77,15 @@ app.use('promotionL2gl',promotionL2glRouter);
 app.use('promotionL3gl',promotionL3glRouter);
 app.use('/analysemath',Cour1Router);
 
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+app.use(cors({
+    origin: 'http://localhost:3000'
+}))
 
 // error handler
 app.use(function(err, req, res, next) {

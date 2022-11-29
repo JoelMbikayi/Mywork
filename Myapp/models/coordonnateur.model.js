@@ -32,8 +32,9 @@ dbConn.query("Select * from coordonnateur where idCoordonnateur = ? ", idCoordon
   }
   });
 };
+
 Coordonnateur.findAll = function (result) {
-dbConn.query("Select * from coordonnateur", function (err, res) {
+dbConn.query("SELECT * from coordonnateur", function (err, res) {
   if(err) {
     console.log("error: ", err);
     result(null, err);
@@ -44,6 +45,10 @@ dbConn.query("Select * from coordonnateur", function (err, res) {
   }
   });
 };
+
+
+
+
 Coordonnateur.update = function(idCoordonnateur, coordonnateur, result){
 dbConn.query("UPDATE coordonnateur SET nom=?,prenom=?,mail=? WHERE idCoordonnateur = ?", [coordonnateur.nom,coordonnateur.prenom, coordonnateur.mail,idCoordonnateur], function (err, res) {
 if(err) {

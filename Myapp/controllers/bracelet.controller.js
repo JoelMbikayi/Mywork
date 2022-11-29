@@ -6,8 +6,7 @@ Bracelet.findAll(function(err, bracelet) {
   console.log('controller')
   if (err)
   res.send(err);
-  console.log('res', compte);
-  res.send(compte);
+  res.json({result : bracelet});
 });
 };
 exports.create = function(req, res) {
