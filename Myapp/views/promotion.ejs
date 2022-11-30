@@ -41,8 +41,9 @@
             <!-- page content-->
             <div class="right_col" role="main">
                 <div>
-                    <Select class="form-control">
-                        <option value="Promotion">Promotion</option>
+                    <Select class="form-control" id="promotion_list">
+                        <option value=0>Selectionnez une promotion</option>
+                        <optgroup label="Liste des promotions" id="promotion_list_group"></optgroup>
                     </Select>
                     <br>
                     <div class="col-md-12 col-sm-12">
@@ -63,36 +64,118 @@
                                     <table class="table table-striped jambo_table bulk_action">
                                         <thead>
                                             <tr class="headings">
-                                                <th><input class="flat" id="check-all" type="checkbox"></th>
                                                 <th class="column-title">id</th>
                                                 <th class="column-title">Nom </th>
                                                 <th class="column-title">Ponderation </th>
-                                                
-                                                </tr>
+                                            </tr>
                                         </thead>
                                         
-                                        <tbody>
-                                            <tr class="even pointer">
-                                                <td class="a-center"><input class="flat" type="checkbox" name="table_records"></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                               
-                                               
-                                            </tr>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                        <tbody id="course_list">
                                         </tbody>
                                    
                                     </table>
                                 </div>
                             </div>
                         </div>
-                    </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                    &#x9;&#x9;&#x9;<footer>
+                    </div>
+                <footer>
                         
                     </footer>
                     <footer content=""></footer>
                 </div>
-            </div><!-- jQuery-->
+            </div>
+
+            <script>
+                const promotion_url='http://localhost:3000/api/v1/promotion';
+
+                //Giving a API URL, that function hits a fetch to the URL & return the json response
+                async function getPromotionData(url) {
+
+                    const response = await fetch(url);
+                    
+                    // Storing data in form of JSON
+                    var data = await response.json();
+                    if (response) {
+                        console.log(data);
+                    }
+                    
+                    showPromotionList(data)
+                }
+                getPromotionData(promotion_url);
+                
+
+                //Get promotion data
+                const promotion_data = getPromotionData(promotion_url);
+
+                
+                function showPromotionList(data) {
+                    const list_to_fill = document.getElementById("promotion_list_group")
+                    let list_template = '';
+                //     // Loop to access all rows 
+                    for (let record of data.result) {
+                        list_template += `<option value=${record.idPromotion}>${record.nom} ${record.filiere}</option>`;
+                    }
+                    // Setting innerHTML as tab variable
+                    list_to_fill.innerHTML = list_template;
+                    
+                }
+
+                showPromotionList(promotion_data);
+            </script>
+            <script>
+                const course_url='http://localhost:3000/api/v1/cours';
+
+                //Giving a API URL, that function hits a fetch to the URL & return the json response
+                async function getCourseData(url) {
+
+                    const response = await fetch(url);
+                    
+                    // Storing data in form of JSON
+                    var data = await response.json();
+                    if (response) {
+                        console.log(data);
+                    }
+                    
+                    showCourseList(data)
+                }
+                getCourseData(course_url);
+
+
+                //Get course data
+                const course_data = getCourseData(course_url);
+
+
+                function showCourseList(data) {
+                    const list_to_fill = document.getElementById("course_list")
+                    
+                    
+                // Loop to access all rows 
+                document.getElementById('promotion_list').addEventListener('change', (e) => {
+                    let list_template = '';
+                    for (let record of data.result) {
+                        
+                        if (record.Promotion_idPromotion == e.target.value) {
+                            list_template += `
+                                <tr class="even pointer">
+                                    <td>${record.idCours}</td>
+                                    <td>${record.nom}</td>
+                                    <td>${record.ponderation}</td>
+                                </tr>
+                                `;
+                        }
+                        
+                    }
+                     // Fill the list with data
+                     list_to_fill.innerHTML = list_template;
+                })
+                    
+                    
+                }
+
+                showPromotionList(promotion_data);
+            </script>
+
+           
             <script src="stylesheets/vendors/jquery/dist/jquery.min.js"></script><!-- Bootstrap-->
             <script src="stylesheets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script><!-- FastClick-->
             <script src="stylesheets/vendors/fastclick/lib/fastclick.js"></script><!-- NProgress-->
