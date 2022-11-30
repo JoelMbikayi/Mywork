@@ -58,14 +58,41 @@
                                         </li>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<li><a class="close-link"><i class="fa fa-close"></i></a></li>
                                     </ul>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="clearfix"></div>
                                 </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="x_content"><br>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<form class="form-horizontal form-label-left" id="demo-form2" data-parsley-validate="" method="post" action="/api/v1/etudiant">
-                                        <div class="item form-group"><label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Matricule <span class="required">*</span></label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="col-md-6 col-sm-6"><input class="form-control" id="first-name" name="matricule" type="text" required="required"></div>
-                                        </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="item form-group"><label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Nom complet <span class="required">*</span></label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="col-md-6 col-sm-6"><input class="form-control" id="last-name" type="text" name="nom_complet" required="required"></div>
-                                        </div><br>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="item form-group"><label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Promotion <span class="required">*</span></label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="col-md-6 col-sm-6"><select class="form-control" id="role" name="Promotion_idPromotion" placeholder="Role" required="">
-                                                    <option value="1">G2 GL</option>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<option value="2">G3 GL</option>
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Matricule 
+                                                <span class="required">*</span>
+                                            </label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                            <div class="col-md-6 col-sm-6"><input class="form-control" id="first-name" name="matricule" type="text" required="required">
+                                            </div>
+                                        </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Nom complet 
+                                                <span class="required">*</span></label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                                <div class="col-md-6 col-sm-6"><input class="form-control" id="last-name" type="text" name="nom_complet" required="required"></div>
+                                        </div><br>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Promotion 
+                                                <span class="required">*</span>
+                                            </label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                            <div class="col-md-6 col-sm-6">
+                                                <select class="form-control" id="role" name="Promotion_idPromotion" placeholder="Role" required="">
+                                                    
                                                 </select></div>
                                         </div>
-                                        &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="item form-group"><label class="col-form-label col-md-3 col-sm-3 label-align">Genre</label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="col-md-6 col-sm-6">
-                                                <div class="btn-group" id="gender" data-toggle="buttons"><label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default"><input class="join-btn" type="radio" name="genre" value="M"> &nbsp; Masculin</label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default"><input class="join-btn" type="radio" name="genre" value="F"> Feminin</label></div>
+                                        &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align">Genre
+
+                                            </label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                            <div class="col-md-6 col-sm-6">
+                                                <div class="btn-group" id="gender" data-toggle="buttons">
+                                                    <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                        <input class="join-btn" type="radio" name="genre" value="M"> &nbsp; Masculin
+                                                    </label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                                    <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                        <input class="join-btn" type="radio" name="genre" value="F"> Feminin
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="ln_solid"></div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="item form-group">
                                             <div class="col-md-6 col-sm-6 offset-md-3"><button class="btn btn-primary" type="button">Annuler</button>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<button class="btn btn-primary" type="reset">Reinitialiser</button>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<button class="btn btn-success" type="submit">Envoyer</button></div>
@@ -79,6 +106,45 @@
                     <footer></footer><!-- /footer content-->
                 </div>
             </div><!-- jQuery-->
+            <script>
+                const linkNode = document.querySelector('#role');
+               
+                
+                    const api_url='http://localhost:3000/api/v1/promotion';
+                    
+                    async function getapi(url) {
+
+                        const response = await fetch(url);
+                        
+                        // Storing data in form of JSON
+                        var data = await response.json();
+                        if (response) {
+                            console.log(data);
+                        }
+                        
+                        retrieveCoordonnateurList(data)
+                    }
+                    getapi(api_url);
+
+
+                    // Function to define innerHTML for HTML table
+                    function retrieveCoordonnateurList(data) {
+                      //  const table_to_fill = document.getElementById("role")
+                        
+                            
+                        // Loop to access all rows 
+                        for (let record of data) {
+                           
+                            
+                    linkNode.innerHTML += '<option value=\"'+record.idPromotion+'\">'+record.nom+' '+record.filiere+'</options>'
+                        }
+                        // Setting innerHTML as tab variable
+                       
+                        
+                        
+                    }
+
+            </script>
             <script src="stylesheets/vendors/jquery/dist/jquery.min.js"></script><!-- Bootstrap-->
             <script src="stylesheets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script><!-- FastClick-->
             <script src="stylesheets/vendors/fastclick/lib/fastclick.js"></script><!-- NProgress-->

@@ -109,10 +109,8 @@
                                                 
                                             </label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                                             <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" id="role" name="ponderation" placeholder="Role" required="">
-                                                    <option value="1">G3 GL</option>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                                    <option value="2">G2 GL</option>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                                
+                                                <select class="form-control" id="promotion" name="Promotion_idPromotion" placeholder="Role" required="">
+                                                    
                                                 </select>
                                             </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                                         </div>
@@ -162,7 +160,47 @@
             <!-- footer content-->
             <footer></footer><!-- /footer content-->
         </div>
+
     </div><!-- jQuery-->
+    <script>
+        const linkNode = document.querySelector('#promotion');
+       
+        
+            const api_url='http://localhost:3000/api/v1/promotion';
+            
+            async function getapi(url) {
+
+                const response = await fetch(url);
+                
+                // Storing data in form of JSON
+                var data = await response.json();
+                if (response) {
+                    console.log(data);
+                }
+                
+                retrieveCoordonnateurList(data)
+            }
+            getapi(api_url);
+
+
+            // Function to define innerHTML for HTML table
+            function retrieveCoordonnateurList(data) {
+              //  const table_to_fill = document.getElementById("role")
+                
+                    
+                // Loop to access all rows 
+                for (let record of data) {
+                   
+                    
+            linkNode.innerHTML += '<option value=\"'+record.idPromotion+'\">'+record.nom+' '+record.filiere+'</options>'
+                }
+                // Setting innerHTML as tab variable
+               
+                
+                
+            }
+
+    </script>
     <script src="../stylesheets/vendors/jquery/dist/jquery.min.js"></script><!-- Bootstrap-->
     <script src="../stylesheets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script><!-- FastClick-->
     <script src="../stylesheets/vendors/fastclick/lib/fastclick.js"></script><!-- NProgress-->
