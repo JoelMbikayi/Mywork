@@ -110,7 +110,7 @@
                                             </label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                                             <div class="col-md-6 col-sm-6">
                                                 <select class="form-control" id="promotion" name="Promotion_idPromotion" placeholder="Role" required="">
-                                                    
+                                                    <option value="0">Liste promotion</option>
                                                 </select>
                                             </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                                         </div>
@@ -178,7 +178,7 @@
                     console.log(data);
                 }
                 
-                retrieveCoordonnateurList(data)
+                retrieveCoordonnateurList(data.result)
             }
             getapi(api_url);
 

@@ -14,6 +14,7 @@ const PromotionRoutes = require('/Finalwork/Mywork/Myapp/routes/promotion.route'
 const CompteRoutes = require('/Finalwork/Mywork/Myapp/routes/compte.route');
 const CoursRoutes = require('/Finalwork/Mywork/Myapp/routes/cours.route');
 const CoordonneesRoutes = require('/Finalwork/Mywork/Myapp/routes/coordonnees.route');
+const AuditoireRoutes = require('/Finalwork/Mywork/Myapp/routes/auditoire.route');
 // using as middleware
 
 var indexRouter = require('./routes/index');
@@ -59,6 +60,7 @@ app.use('/api/v1/promotion', PromotionRoutes);
 app.use('/api/v1/compte', CompteRoutes);
 app.use('/api/v1/cours', CoursRoutes);
 app.use('/api/v1/coordonnees', CoordonneesRoutes);
+app.use('/api/v1/auditoire', AuditoireRoutes);
 app.use('/', indexRouter);
 
 
