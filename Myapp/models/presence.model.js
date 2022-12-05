@@ -1,0 +1,60 @@
+'use strict';
+var dbConn = require('./bd');
+//Cours object create
+var Presence = function(presence){
+  this.idPresence = presence.idPresence;
+  this.presence = presence.presence;
+  this.Etudiant_matricule=presence.Etudiant_matricule;
+  this.Seance_idSeance = presence.Seance_idSeance;
+
+}
+  
+Presence.create = function (newPresence, result) {
+dbConn.query("INSERT INTO presence set ?", newPresence, function (err, res) {
+  if(err) {
+    console.log("error: ", err);
+    result(err, null);
+  }
+  else{
+    console.log(res.insertidPresence);
+    result(null, res.insertPresence);
+  }
+  });
+};
+Presence.findById = function (idPresence, result) {
+dbConn.query("Select * from presence where idPresence = ? ", idPresence, function (err, res) {
+if(err) {
+  console.log("error: ", err);
+  result(err, null);
+}
+else{
+  result(null, res);
+}
+});
+};
+Presence.findAll = function (result) {
+dbConn.query("Select * from presence", function (err, res) {
+if(err) {
+  console.log("error: ", err);
+  result(null, err);
+}
+else{
+  console.log('presence : ', res);
+  result(null, res);
+}
+});
+};
+
+Presence.delete = function(idPresence, result){
+dbConn.query("DELETE FROM presence WHERE idPresence = ?", [idPresence], function (err, res) {
+if(err) {
+  console.log("error: ", err);
+  result(null, err);
+}
+else{
+  result(null, res);
+}
+});
+};
+
+module.exports= Presence;

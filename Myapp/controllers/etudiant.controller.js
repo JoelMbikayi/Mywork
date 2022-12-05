@@ -24,6 +24,15 @@ exports.create = function(req, res) {
         });
     }
 };
+
+exports.findbyPromotion = function(req, res){
+  Etudiant.findbyPromotion(req.params.Promotion_idPromotion, function(err, etudiant){
+    if(err)
+    res.send(err);
+    res.json(etudiant);
+  });
+};
+
 exports.findById = function(req, res) {
 Etudiant.findById(req.params.matricule, function(err, etudiant) {
   if (err)

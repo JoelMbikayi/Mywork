@@ -2,7 +2,7 @@
 const Seance = require('../models/seance.model');
 
 exports.findAll = function(req, res) {
-Bracelet.findAll(function(err, seance) {
+Seance.findAll(function(err, seance) {
   console.log('controller')
   if (err)
   res.send(err);
@@ -10,7 +10,7 @@ Bracelet.findAll(function(err, seance) {
 });
 };
 exports.create = function(req, res) {
-const new_bracelet = new Bracelet(req.body);
+const new_seance = new Seance(req.body);
 //handles null error
 if(req.body.constructor === Object && Object.keys(req.body).length === 0){
   res.status(400).send({ error:true, message: 'Please provide all required field' });
@@ -18,8 +18,8 @@ if(req.body.constructor === Object && Object.keys(req.body).length === 0){
 Seance.create(new_seance, function(err, seance) {
   if (err)
   res.send(err);
-  res.redirect('/dashboard');
- // res.json({error:false,message:"Compte added successfully!",data:compte});
+  res.redirect('/seance');
+  //res.json({error:false,message:"Compte added successfully!",data:seance});
 });
 }
 };

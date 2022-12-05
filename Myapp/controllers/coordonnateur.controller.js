@@ -21,7 +21,7 @@ if(req.body.constructor === Object && Object.keys(req.body).length === 0){
 Coordonnateur.create(new_coordonnateur, function(err, coordonnateur) {
   if (err)
   res.send(err);
-  res.redirect('/dashboard');
+  res.redirect('/secretaire');
   //res.json({error:false,message:"Coordonnateur added successfully!",data:coordonnateur});
 });
 }

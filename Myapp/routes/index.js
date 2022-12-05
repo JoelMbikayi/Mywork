@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var dbConn = require('../models/bd');
 //const Coordonnateur = require('../models/coordonnateur.model');
-const Coordonnateur = require('../controllers/coordonnateur.controller');
+//const Coordonnateur = require('../controllers/coordonnateur.controller');
 //var coordo = require('./../routes/coordonnateur.route');
 
 /* GET home page. */
@@ -53,7 +53,9 @@ router.get('/dashboard', function(req, res, next) {
   
 });
 
-
+router.get('/auditoire', function(req, res, next) {
+	res.render('auditoire',{ });
+});
 
 
 router.get('/form', function(req, res, next) {
@@ -67,8 +69,8 @@ router.get('/form', function(req, res, next) {
 }
 
 });
-router.get('/Horaire', function(req,res, next){
-	res.render('Horaire', {});
+router.get('/seance', function(req,res, next){
+	res.render('seance', {});
 });
 router.get('/cours', function(req,res, next){
 	res.render('cours', {});
@@ -81,7 +83,7 @@ router.get('/promotion2', function(req, res, next) {
   });
 router.get('/secretaire', function(req, res, next) {
 
-      res.render('secretaire',{  });
+      res.render('secretaire',{});
     
   });
  //console.log(Coordonnateurss.findAll()); 
@@ -93,9 +95,7 @@ router.get('/promotion', function(req, res, next) {
 router.get('/promotionL2gl', function(req, res, next) {
     res.render('promotionL2gl');
   });
-router.get('/promotionL3gl', function(req, res, next) {
-      res.render('promotionL3gl');
-    });
+
 router.get('/analysemath', function(req, res, next) {
       res.render('analysemath');
     });

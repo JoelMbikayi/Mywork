@@ -21,7 +21,8 @@ Auditoire.create(new_auditoire, function(err, auditoire) {
   if (err)
   res.send(err);
   //res.redirect('/dashboard');
-  res.json({error:false,message:"auditoire added successfully!",data:auditoire});
+  res.redirect('/auditoire');
+  //res.json({error:false,message:"auditoire added successfully!",data:auditoire});
 });
 }
 };

@@ -105,18 +105,17 @@
                 <div>
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Coordonnateur</h3>
+                            <h3>Auditoire</h3>
                         </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="title_right">
                             <div class="col-md-5 col-sm-5 form-group pull-right top_search">
-                                <div class="input-group">
-                                    <input class="form-control" type="text" placeholder="Search for...">&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<span class="input-group-btn"><button class="btn btn-default" type="button">Go!</button></span></div>
+                                <div class="input-group"><input class="form-control" type="text" placeholder="Search for...">&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<span class="input-group-btn"><button class="btn btn-default" type="button">Go!</button></span></div>
                             </div>
                         </div>
                     </div>&#x9;&#x9;&#x9;&#x9;&#x9;<div class="clearfix"></div>&#x9;&#x9;&#x9;&#x9;&#x9;<div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Formulaire <small>Ajout Coordonnateur</small></h2>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<ul class="nav navbar-right panel_toolbox">
+                                    <h2>Formulaire <small>Ajout Auditoire</small></h2>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<ul class="dropdown-menu" role="menu">
                                                 <li><a class="dropdown-item" href="#">Settings 1</a></li>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<li><a class="dropdown-item" href="#">Settings 2</a></li>
                                             </ul>
@@ -126,14 +125,31 @@
                                     </div>
                                 </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                                 <div class="x_content"><br>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                    <form class="form-horizontal form-label-left" id="demo-form2" data-parsley-validate="" method="post" action="/api/v1/coordonnateur">
-                                        <div class="item form-group"><label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom <span class="required">*</span></label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="col-md-6 col-sm-6"><input class="form-control" id="first-name" name="nom" type="text" required="required"></div>
-                                        </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="item form-group"><label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Prenom <span class="required">*</span></label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="col-md-6 col-sm-6"><input class="form-control" id="last-name" type="text" name="prenom" required="required"></div>
+                                    <form class="form-horizontal form-label-left" id="demo-form2" data-parsley-validate="" method="post" action="/api/v1/auditoire">
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom 
+                                                <span class="required">*</span></label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                                <div class="col-md-6 col-sm-6">
+                                                    <input class="form-control" id="first-name" name="nom" type="text" required="required">
+                                                </div>
+                                        </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Longitude1
+                                                <span class="required">*
+
+                                                </span>
+                                            </label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="col-md-6 col-sm-6">
+                                                <input class="form-control" id="last-name" type="text" name="prenom" required="required">
+                                            </div>
                                         </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                                         &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                        &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Mail 
-                                                <span class="required">*</span></label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                        &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Latitude1
+                                                <span class="required">*
+
+                                                </span>
+                                            </label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                                                 <div class="col-md-6 col-sm-6">
                                             <input class="form-control" id="last-name" type="text" name="mail" required="required">
                                         </div>
@@ -149,83 +165,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="clearfix"></div>&#x9;&#x9;&#x9;&#x9;&#x9;<div class="row">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="x_panel">
-                                <div class="x_title">
-                                    <h2>Formulaire <small>Ajout Compte </small></h2>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<ul class="dropdown-menu" role="menu">
-                                                <li><a class="dropdown-item" href="#">Settings 1</a></li>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<li><a class="dropdown-item" href="#">Settings 2</a></li>
-                                            </ul>
-                                        </li>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<li><a class="close-link"><i class="fa fa-close"></i></a></li>
-                                    </ul>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="clearfix"></div>
-                                </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="x_content"><br>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                    <form class="form-horizontal form-label-left" id="demo-form2" data-parsley-validate="" method="post" action="/api/v1/compte">&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                        &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                        &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3 label-align" name="login" for="last-name">Login 
-                                                <span class="required">*</span></label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                                <div class="col-md-6 col-sm-6"><input class="form-control" id="last-name" type="text" name="login" required="required">
-                                                </div>
-                                        </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                        <div class="item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Role 
-                                                <span class="required">*</span>
-                                            </label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                            <div class="col-md-6 col-sm-6"><select class="form-control" id="role" name="role" placeholder="Role" required="">
-                                                    <option value="Secretaire">Secretaire</option>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                                    <option value="Coordonnateur">Coordonnateur</option>
-                                                </select></div><br></div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                                <div class="item form-group">
-                                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Mot de passe 
-                                                        <span class="required">*</span></label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                                        <div class="col-md-6 col-sm-6">
-                                                            <input class="form-control" id="last-name" type="password" name="password" required="required">
-                                                        </div>
-                                        </div>
-                                        <div class="item form-group">
-                                             <label class="col-form col-md-3 col-sm-3 label-align" for="cooronnateur"> Coordonnateur
-                                                <span class="required">*</span>
-                                            </label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                            <div class="col-md-6 col-sm-6"> 
-                                             
-                                                    
-                                                  
-                                                <select class="form-control" id="coordonnateur" name="Coordonnateur_idCoordonnateur" placeholder="coordonnateur" require="">
-                                                    <option value=""></option>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                                    
-                                                </select><br></div>
-                                        </div>
-                                        
-                                        <div class="item form-group">
-                                            <div class="col-md-6 col-sm-6 offset-md-3"><button class="btn btn-primary" type="button">Annuler</button>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<button class="btn btn-primary" type="reset">Reinitialiser</button>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<button class="btn btn-success" type="submit">Envoyer</button></div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
                     <div class="col-md-12 col-sm-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Liste <small>Coordonnateurs</small></h2>
+                                <h2>Liste <small>Auditoires</small></h2>
                                 <ul class="nav navbar-right panel_toolbox">
-                                    <li>
-                                        <a class="collapse-link">
-                                            <i class="fa fa-chevron-up">
-
-                                            </i>
-                                        </a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
-                                            <i class="fa fa-wrench">
-                                            </i>
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Settings 1</a>
-                                            <a class="dropdown-item" href="#">Settings 2</a>
-                                        </div>
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                                    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="#">Settings 1</a><a class="dropdown-item" href="#">Settings 2</a></div>
                                     </li>
                                     <li><a class="close-link"><i class="fa fa-close"></i></a></li>
                                 </ul>
@@ -241,60 +189,6 @@
                             </div>
                             
                             
-                            <script>
-                                const linkNode = document.querySelector('#coordonnateur');
-                               
-                                
-                                    const api_url='http://localhost:3000/api/v1/coordonnateur';
-                                    
-                                    async function getapi(url) {
-    
-                                        const response = await fetch(url);
-                                        
-                                        // Storing data in form of JSON
-                                        var data = await response.json();
-                                        if (response) {
-                                            console.log(data);
-                                        }
-                                        
-                                        retrieveCoordonnateurList(data)
-                                    }
-                                    getapi(api_url);
-    
-    
-                                    // Function to define innerHTML for HTML table
-                                    function retrieveCoordonnateurList(data) {
-                                        const table_to_fill = document.getElementById("coordonnateur_table")
-                                        let table_template = 
-                                            `<thead>
-                                                <tr class="headings">
-                                                    <th class="column-title">id</th>
-                                                    <th class="column-title">Nom </th>
-                                                    <th class="column-title">Prenom </th>
-                                                    <th class="column-title">Mail </th>
-                                                    </tr>
-                                            </thead>`;
-                                            
-                                        // Loop to access all rows 
-                                        for (let record of data) {
-                                            table_template += `<tr class="even pointer">
-                                        <td>${record.idCoordonnateur} </td>
-                                        <td>${record.nom}</td>
-                                        <td>${record.prenom}</td> 
-                                        <td>${record.mail}</td>          
-                                        <td class="last"><button class="btn btn-primary">Supprimer</button></td>
-                                        <td class="last"><button class="btn btn-primary">Modifier</button></td>
-                                                
-                                    </tr>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;`;
-                                    linkNode.innerHTML += '<option value=\"'+record.idCoordonnateur+'\">'+record.nom+'</options>'
-                                        }
-                                        // Setting innerHTML as tab variable
-                                        table_to_fill.innerHTML = table_template;
-                                        
-                                        
-                                    }
-
-                            </script>
                         </div>
                     </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     &#x9;&#x9;&#x9;<footer>

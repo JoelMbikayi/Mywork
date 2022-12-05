@@ -55,184 +55,50 @@
             </div><!-- /top navigation-->
             <!-- page content-->
             <div class="right_col" role="main">
-                <Select class="form-control" >
+                <Select class="form-control" id="promotion_list">
                     <option value=0>Selectionnez une promotion</option>
                         <optgroup label="Liste des promotions" id="promotion_list_group"></optgroup>
                 </Select>
                 <!-- top tiles-->
                 <p>
-                   
-
-                    <table style="height: 30px;" border="1" cellspacing="10" cellpadding="20" width="50" align="center" class="table table-striped jambo_table bulk_action">
-                        <thead>
-                            <tr class="headings">
-                                <th class="column-title">Heure </th>
-                                <th class="column-title">Lundi <input type="date" name="date" min="2018-01-01" max="2018-12-31" id="start"></th>
-                                <th class="column-title">Mardi <input type="date" name="date" min="2018-01-01" max="2018-12-31" id="start"></th>
-                                <th class="column-title">Mercredi <input type="date" name="date" min="2018-01-01" max="2018-12-31" id="start"></th>
-                                <th class="column-title">Jeudi <input type="date" name="date" min="2018-01-01" max="2018-12-31" id="start"></th>
-                                <th class="column-title">Vendredi <input type="date" name="date" min="2018-01-01" max="2018-12-31" id="start"></th>
-                                <th class="column-title" >Samedi<input type="date" name="date" min="2018-01-01" max="2018-12-31" id="start"></th>
+                    <form action="/api/v1/seance" method="post">
+                        <table style="height: 30px;" border="1" cellspacing="10" cellpadding="20" width="50" align="center" class="table table-striped jambo_table bulk_action">
+                            <thead>
+                                <tr class="headings">
+                                    <th class="column-title">Heure </th>
+                                    <th class="column-title">Lundi 
+                                        <input type="date" name="date" min="2018-01-01" max="2050-12-31" id="start"></th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                            <tr>
+                                <td>De<input type="time" id="appt" name="heure_debut" min="09:00" max="18:00" required>
+                                    <br/><br/>
+                                     A<input type="time" id="appt" name="heure_fin" min="09:00" max="18:00" required>
+                                </td>
+                                <td>
+                                    <Select class="form-control" name="Cours_idCours">
+                                    
+                                    <optgroup class="cours" id="course_list" >List cours</optgroup>
+                                    </Select>
+                                </td>
                             </tr>
-                        </thead>
-                    <tbody>
-                        <tr>
-                            <td>De<input type="time" id="appt" name="appt" min="09:00" max="18:00" required><br>
-                                 A<input type="time" id="appt" name="appt" min="09:00" max="18:00" required>
-                            </td>
-                            <td><Select class="form-control" >
-                                <option value="Promotion">Cours</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">Cours</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">Cours</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">Cours</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">Cours</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">Cours</option>
-                            </Select>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>Auditoire</td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">GRANDE SALLE</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">GRANDE SALLE</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">GRANDE SALLE</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">GRANDE SALLE</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">GRANDE SALLE</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">GRANDE SALLE</option>
-                            </Select></td>
-                        </tr>
-                        <tr>
-                            <td type="daterangepicker">
-                                <input type="time" id="appt" name="appt" min="09:00" max="18:00" required><br>
-                                A<input type="time" id="appt" name="appt" min="09:00" max="18:00" required>    
-                            </td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">Promotion</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">Promotion</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">Promotion</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">Promotion</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">Promotion</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">Promotion</option>
-                            </Select></td>
-                        </tr>
-                        <tr>
-                            <td>Auditoire</td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">GRANDE SALLE</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">GRANDE SALLE</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">GRANDE SALLE</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">GRANDE SALLE</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">GRANDE SALLE</option>
-                            </Select></td>
-                            <td><Select class="form-control">
-                                <option value="Promotion">GRANDE SALLE</option>
-                            </Select></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="time" id="appt" name="appt" min="09:00" max="18:00" required><br>
-                                 A<input type="time" id="appt" name="appt" min="09:00" max="18:00" required>
-                            </td>
-                            <td>
-                                <Select class="form-control" >
-                                    <optgroup label="cours" id="course_list"></optgroup>
-                                </Select>
-                            </td>
-                            <td>
-                                <Select class="form-control" id="course_list">
-                                    <option value="Promotion">Cours</option>
+                            <tr>
+                                <td>Auditoire</td>
+                                <td>
+                                    <Select class="form-control" id="auditoire" name="Auditoire_idAuditoire" >
+                                    <optgroup >List auditoire</optgroup>
                                 </Select></td>
-                            <td>
-                                <Select class="form-control" id="course_list">
-                                    <option value="Promotion">Cours</option>
-                                </Select>
-                            </td>
-                            <td>
-                                <Select class="form-control" id="course_list">
-                                    <option value="Promotion">Cours</option>
-                                </Select></td>
-                            <td>
-                                <Select class="form-control" id="course_list">
-                                    <option value="Promotion">Cours</option>
-                                </Select></td>
-                            <td>
-                                <Select class="form-control" id="course_list">
-                                    <option value="Promotion">Cours</option>
-                                </Select></td>
-                        </tr>
-                        <tr>
-                            <td>Auditoire</td>
-                            <td>
-                                <Select class="form-control">
-                                    <option value="Promotion">GRANDE SALLE</option>
-                                </Select>
-                            </td>
-                            <td>
-                                <Select class="form-control">
-                                    <option value="Promotion">GRANDE SALLE</option>
-                                </Select>
-                            </td>
-                            <td>
-                                <Select class="form-control">
-                                    <option value="Promotion">GRANDE SALLE</option>
-                                </Select>
-                            </td>
-                            <td>
-                                <Select class="form-control">
-                                    <option value="Promotion">GRANDE SALLE</option>
-                                </Select>
-                            </td>
-                            <td>
-                                <Select class="form-control">
-                                    <option value="Promotion">GRANDE SALLE</option>
-                                </Select>
-                            </td>
-                            <td>
-                                <Select class="form-control">
-                                    <option value="Promotion">GRANDE SALLE</option>
-                                </Select>
-                            </td>
-                        </tr>
-                    </tbody>
-                    </table>
+                               
+                            </tr>
+                           
+                         
+                            
+                        </tbody>
+                        </table>
+                        <button class="btn btn-success" type="submit">Creer</button>
+                    </form>
+                   
                     </p>
                 <div class="row" style="display: inline-block;">
                     <div class="tile_count"></div>
@@ -243,41 +109,35 @@
         </div>
     </div><!-- jQuery-->
     <script>
+        document.get
         const auditoire_url='http://localhost:3000/api/v1/auditoire';
 
         //Giving a API URL, that function hits a fetch to the URL & return the json response
-        async function getPromotionData(url) {
+        linkAudit = document.getElementById("auditoire")
+        async function getAuditoireData(url) {
 
             const response = await fetch(url);
             
             // Storing data in form of JSON
             var data = await response.json();
             if (response) {
-                console.log(data);
+                console.log(data.result);
             }
             
-            showPromotionList(data)
+            showAuditoire(data.result);
         }
-        getPromotionData(promotion_url);
-        
-
+        getAuditoireData(auditoire_url);
         //Get promotion data
         const auditoire_data = getPromotionData(auditoire_url);
 
-        
-        function showPromotionList(data) {
-            const list_to_fill = document.getElementById("promotion_list_group")
-            let list_template = '';
-        //     // Loop to access all rows 
-            for (let record of data.result) {
-                list_template += `<option value=${record.idPromotion}>${record.nom} ${record.filiere}</option>`;
+        function showAuditoire(data) {
+              //  const table_to_fill = document.getElementById("role")
+                // Loop to access all rows 
+                for (let record of data) {   
+            linkAudit.innerHTML +=`<option value=${record.idAuditoire}>${record.nom} </option>`;
+                }
+                // Setting innerHTML as tab variable               
             }
-            // Setting innerHTML as tab variable
-            list_to_fill.innerHTML = list_template;
-            
-        }
-
-        showPromotionList(promotion_data);
     </script>
     <script>
         const promotion_url='http://localhost:3000/api/v1/promotion';

@@ -15,6 +15,9 @@ const CompteRoutes = require('/Finalwork/Mywork/Myapp/routes/compte.route');
 const CoursRoutes = require('/Finalwork/Mywork/Myapp/routes/cours.route');
 const CoordonneesRoutes = require('/Finalwork/Mywork/Myapp/routes/coordonnees.route');
 const AuditoireRoutes = require('/Finalwork/Mywork/Myapp/routes/auditoire.route');
+const SeanceRoutes = require('/Finalwork/Mywork/Myapp/routes/seance.route');
+const PresenceRoutes = require('/Finalwork/Mywork/Myapp/routes/presence.route');
+const BraceletRoutes = require('/Finalwork/Mywork/Myapp/routes/bracelet.route');
 // using as middleware
 
 var indexRouter = require('./routes/index');
@@ -25,9 +28,10 @@ var dashboardRouter = require('./routes/index');
 var formRouter = require('./routes/index');
 var promoRouter = require('./routes/index');
 var secretaireRouter = require('./routes/index');
-var promotionL2glRouter = require("./routes/index");
+var auditoireRouter = require("./routes/index");
 var promotionL3glRouter = require("./routes/index");
-var Cour1Router = require("./routes/index");
+var seanceRouter = require("./routes/index");
+
 
 var app = express();
 
@@ -61,13 +65,16 @@ app.use('/api/v1/compte', CompteRoutes);
 app.use('/api/v1/cours', CoursRoutes);
 app.use('/api/v1/coordonnees', CoordonneesRoutes);
 app.use('/api/v1/auditoire', AuditoireRoutes);
+app.use('/api/v1/seance', SeanceRoutes);
+app.use('/api/v1/presence', PresenceRoutes);
+app.use('/api/v1/bracelet', BraceletRoutes)
 app.use('/', indexRouter);
 
 
 
 app.use('/users', usersRouter);
 app.use('/', indexRouter);
-app.use('/Horaire', indexRouter);
+app.use('/seance', seanceRouter);
 app.use('/users', usersRouter);
 app.use('/cours', usersRouter);
 app.use('/dashboard', dashboardRouter);
@@ -75,9 +82,9 @@ app.use('/form', formRouter);
 app.use('/promotion', promoRouter);
 app.use('/secretaire', secretaireRouter);
 app.use('promotion',promoRouter);
-app.use('promotionL2gl',promotionL2glRouter);
-app.use('promotionL3gl',promotionL3glRouter);
-app.use('/analysemath',Cour1Router);
+//app.use('promotionL2gl',promotionL2glRouter);
+//app.use('promotionL3gl',promotionL3glRouter);
+app.use('/auditoire',auditoireRouter);
 
 
 // catch 404 and forward to error handler

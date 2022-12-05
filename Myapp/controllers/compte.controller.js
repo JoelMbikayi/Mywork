@@ -18,7 +18,7 @@ if(req.body.constructor === Object && Object.keys(req.body).length === 0){
 Compte.create(new_compte, function(err, compte) {
   if (err)
   res.send(err);
-  res.redirect('/dashboard');
+  res.redirect('/secretaire');
  // res.json({error:false,message:"Compte added successfully!",data:compte});
 });
 }

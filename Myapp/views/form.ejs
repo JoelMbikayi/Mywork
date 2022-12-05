@@ -57,7 +57,8 @@
                                             </ul>
                                         </li>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<li><a class="close-link"><i class="fa fa-close"></i></a></li>
                                     </ul>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="clearfix"></div>
-                                </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="x_content"><br>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<form class="form-horizontal form-label-left" id="demo-form2" data-parsley-validate="" method="post" action="/api/v1/etudiant">
+                                </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="x_content"><br>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                    <form class="form-horizontal form-label-left" id="demo-form2" data-parsley-validate="" method="post" action="/api/v1/etudiant">
                                         <div class="item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Matricule 
                                                 <span class="required">*</span>
@@ -75,7 +76,7 @@
                                                 <span class="required">*</span>
                                             </label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                                             <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" id="role" name="Promotion_idPromotion" placeholder="Role" required="">
+                                                <select class="form-control" id="promotion" name="Promotion_idPromotion" placeholder="Role" required="">
                                                     
                                                 </select></div>
                                         </div>
@@ -95,7 +96,7 @@
                                                 </div>
                                             </div>
                                         </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="ln_solid"></div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="item form-group">
-                                            <div class="col-md-6 col-sm-6 offset-md-3"><button class="btn btn-primary" type="button">Annuler</button>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<button class="btn btn-primary" type="reset">Reinitialiser</button>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<button class="btn btn-success" type="submit">Envoyer</button></div>
+                                            <div class="col-md-6 col-sm-6 offset-md-3"><button class="btn btn-primary" type="button">Annuler</button>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<button class="btn btn-primary" type="reset">Reinitialiser</button>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<button post>Envoyer</button></div>
                                         </div>
                                     </form>
                                 </div>
@@ -107,7 +108,7 @@
                 </div>
             </div><!-- jQuery-->
             <script>
-                const linkNode = document.querySelector('#role');
+                const linkNode = document.querySelector('#promotion');
                
                 
                     const api_url='http://localhost:3000/api/v1/promotion';
@@ -122,7 +123,7 @@
                             console.log(data);
                         }
                         
-                        retrieveCoordonnateurList(data)
+                        retrieveCoordonnateurList(data.result)
                     }
                     getapi(api_url);
 

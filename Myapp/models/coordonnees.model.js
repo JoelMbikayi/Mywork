@@ -6,11 +6,11 @@ var Coordonnees = function(coordonnees){
   this.longitude     = coordonnees.longitude;
   this.latitude  = coordonnees.latitude;
   this.altitude = coordonnees.altitude;
-  this.Bracelet.address_mac = coordonnees.address_mac;
+  this.Bracelet_address_mac = coordonnees.Bracelet_address_mac;
 }
   
 Coordonnees.create = function (newCoordonnees, result) {
-dbConn.query("INSERT INTO Coordonnees set ?", newCoordonnees, function (err, res) {
+dbConn.query("INSERT INTO coordonnees set ?", newCoordonnees, function (err, res) {
 if(err) {
   console.log("error: ", err);
   result(err, null);
@@ -21,8 +21,8 @@ else{
 }
 });
 };
-Coordonnees.findById = function (idCoordonnees, result) {
-dbConn.query("Select * from coordonnateur where idCoordonnees = ? ", idCoordonnees, function (err, res) {
+Coordonnees.findById = function (Bracelet_address_mac, result) {
+dbConn.query("Select * from coordonnees where idCoordonnees = ? ", Bracelet_address_mac, function (err, res) {
 if(err) {
   console.log("error: ", err);
   result(err, null);
