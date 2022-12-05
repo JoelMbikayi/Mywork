@@ -37,3 +37,11 @@ Presence.delete( req.params.idPresence, function(err, presence) {
     res.json({ error:false, message: 'Presence successfully deleted' });
   });
 };
+exports.findT = function(req, res){
+  Presence.findT(req.params.idCours, function(err, presence){
+    if (err) {
+      res.send(err);
+      res.json({result : presence});
+    }
+  });
+};

@@ -57,4 +57,19 @@ else{
 });
 };
 
+Presence.findT = function (idCours,result) {
+  dbConn.query("SELECT * FROM presence INNER JOIN etudiant ON presence.Etudiant_matricule=etudiant.matricule INNER JOIN seance ON presence.Seance_idSeance=seance.idSeance where Cours_idCours=?",idCours
+ , function (err, res) {
+  if(err) {
+    console.log("error: ", err);
+    result(err, null);
+  }
+  else{
+    result(null, res);
+  }
+  });
+  };
+
+
+
 module.exports= Presence;
