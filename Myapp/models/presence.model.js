@@ -45,6 +45,20 @@ else{
 });
 };
 
+Presence.findT = function (result) {
+dbConn.query("SELECT * FROM presence INNER JOIN etudiant ON presence.Etudiant_matricule=etudiant.matricule INNER JOIN seance ON presence.Seance_idSeance=seance.idSeance", function (err, res) {
+if(err) {
+  console.log("error: ", err);
+  result(null, err);
+}
+else{
+  console.log('presence : ', res);
+  result(null, res);
+}
+});
+};
+
+
 Presence.delete = function(idPresence, result){
 dbConn.query("DELETE FROM presence WHERE idPresence = ?", [idPresence], function (err, res) {
 if(err) {
@@ -57,18 +71,6 @@ else{
 });
 };
 
-Presence.findT = function (idCours,result) {
-  dbConn.query("SELECT * FROM presence INNER JOIN etudiant ON presence.Etudiant_matricule=etudiant.matricule INNER JOIN seance ON presence.Seance_idSeance=seance.idSeance where Cours_idCours=?",idCours
- , function (err, res) {
-  if(err) {
-    console.log("error: ", err);
-    result(err, null);
-  }
-  else{
-    result(null, res);
-  }
-  });
-  };
 
 
 

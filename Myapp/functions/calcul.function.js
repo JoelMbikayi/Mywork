@@ -10,7 +10,9 @@ const presenceController =   require('../controllers/presence.controller');
         { latitude4, longitude4},
     ];
 
-geolib.isPointInPolygon(point, polygon)
+geolib.isPointInPolygon(point, polygon);
+
+
    
 
     

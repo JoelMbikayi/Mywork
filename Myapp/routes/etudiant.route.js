@@ -11,9 +11,9 @@ router.get('/', function(req, res, next) {
   });
 
 // Retrieve a single employee with id
-//router.get('/:matricule', etudiantController.findById);
+router.get('/:matricule', etudiantController.findById);
 //
-router.get('/:Promotion_idPromotion',etudiantController.findbyPromotion);
+router.get('/etprom/:Promotion_idPromotion',etudiantController.findbyPromotion);
 // Update a employee with id
 
 router.put('/:matricule', etudiantController.update);

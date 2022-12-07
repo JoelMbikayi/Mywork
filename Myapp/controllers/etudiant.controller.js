@@ -26,7 +26,7 @@ exports.create = function(req, res) {
 };
 
 exports.findbyPromotion = function(req, res){
-  Etudiant.findbyPromotion(req.params.Promotion_idPromotion, function(err, etudiant){
+Etudiant.findbyPromotion(req.params.promotion_idPromotion, function(err, etudiant){
     if(err)
     res.send(err);
     res.json(etudiant);

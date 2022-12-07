@@ -69,6 +69,10 @@ router.get('/form', function(req, res, next) {
 }
 
 });
+router.get('/presence', function(req,res, next){
+	res.render('presence', {});
+});
+
 router.get('/seance', function(req,res, next){
 	res.render('seance', {});
 });

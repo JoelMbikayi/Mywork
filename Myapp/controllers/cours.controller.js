@@ -18,7 +18,7 @@ if(req.body.constructor === Object && Object.keys(req.body).length === 0){
 Cours.create(new_cours, function(err, cours) {
   if (err)
   res.send(err);
-  res.redirect('/dashboard');
+  res.redirect('/cours');
  // res.json({error:false,message:"Compte added successfully!",data:compte});
 });
 }

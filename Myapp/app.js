@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 
+
 const etudiantRoutes = require('/FinalWork/Mywork/Myapp/routes/etudiant.route');
 const coordoRoutes = require('/Finalwork/Mywork/Myapp/routes/coordonnateur.route');
 const PromotionRoutes = require('/Finalwork/Mywork/Myapp/routes/promotion.route');
@@ -33,6 +34,7 @@ var promotionL3glRouter = require("./routes/index");
 var seanceRouter = require("./routes/index");
 
 
+
 var app = express();
 
 // view engine setup
@@ -54,6 +56,13 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
 }));
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+  next();
+});
+
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -86,6 +95,8 @@ app.use('promotion',promoRouter);
 //app.use('promotionL3gl',promotionL3glRouter);
 app.use('/auditoire',auditoireRouter);
 
+
+app.use('/presence',auditoireRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

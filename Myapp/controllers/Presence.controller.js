@@ -9,6 +9,17 @@ Presence.findAll(function(err, presence) {
   res.json({result : presence});
 });
 };
+
+exports.findT = function(req, res){
+Presence.findT(function(err, presence){
+    console.log('controller')
+    if (err) 
+    res.send(err);
+    res.json({result : presence});
+      
+  });
+  };
+
 exports.create = function(req, res) {
 const new_presence = new Presence(req.body);
 //handles null error
@@ -20,9 +31,10 @@ Presence.create(new_presence, function(err, presence) {
   res.send(err);
   //res.redirect('/dashboard');
   res.json({error:false,message:"Compte added successfully!",data:presence});
-});
-}
+  });
+  }
 };
+
 exports.findById = function(req, res) {
 Presence.findById(req.params.idPresence, function(err, presence) {
   if (err)
@@ -30,6 +42,7 @@ Presence.findById(req.params.idPresence, function(err, presence) {
   res.json(presence);
 });
 };
+
 exports.delete = function(req, res) {
 Presence.delete( req.params.idPresence, function(err, presence) {
     if (err)
@@ -37,11 +50,4 @@ Presence.delete( req.params.idPresence, function(err, presence) {
     res.json({ error:false, message: 'Presence successfully deleted' });
   });
 };
-exports.findT = function(req, res){
-  Presence.findT(req.params.idCours, function(err, presence){
-    if (err) {
-      res.send(err);
-      res.json({result : presence});
-    }
-  });
-};
+
