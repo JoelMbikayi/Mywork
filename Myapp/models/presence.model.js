@@ -21,8 +21,8 @@ dbConn.query("INSERT INTO presence set ?", newPresence, function (err, res) {
   }
   });
 };
-Presence.findById = function (idPresence, result) {
-dbConn.query("Select * from presence where idPresence = ? ", idPresence, function (err, res) {
+Presence.findById = function (Seance_idSeance, result) {
+dbConn.query("SELECT * FROM presence INNER JOIN etudiant ON presence.Etudiant_matricule=etudiant.matricule INNER JOIN seance ON presence.Seance_idSeance=seance.idSeance where presence.Seance_idSeance = ? ", Seance_idSeance, function (err, res) {
 if(err) {
   console.log("error: ", err);
   result(err, null);
