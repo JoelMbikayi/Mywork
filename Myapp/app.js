@@ -56,13 +56,14 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
 }));
+/*
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
   next();
 });
-
+*/
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -103,9 +104,9 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-app.use(cors({
-    origin: 'http://localhost:3000'
-}))
+//app.use(cors({
+//    origin: 'http://localhost:3000'
+//}))
 
 // error handler
 app.use(function(err, req, res, next) {

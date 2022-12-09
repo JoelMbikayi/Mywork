@@ -2,9 +2,10 @@
 var dbConn = require('./bd');
 //Cours object create
 var Bracelet = function(bracelet){
-  this.address_mac=bracelet.address_mac;
+  this.adress_mac=bracelet.adress_mac;
   this.wifi     = bracelet.wifi;
-  this.etudiant_matricule  = bracelet.etudiant_matricule;
+  this.Bluetooth = bracelet.Bluetooth;
+  this.Etudiant_matricule  = bracelet.Etudiant_matricule;
 }
   
 Bracelet.create = function (newBracelet, result) {

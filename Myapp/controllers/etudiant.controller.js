@@ -19,7 +19,8 @@ exports.create = function(req, res) {
     Etudiant.create(new_etudiant, function(err, etudiant) {
     if (err)
         res.send(err);
-        res.json({error:false,message:"Etudiant added successfully!",data:etudiant});
+        res.redirect('/form');
+        //res.json({error:false,message:"Etudiant added successfully!",data:etudiant});
 
         });
     }
