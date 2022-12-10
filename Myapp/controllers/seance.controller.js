@@ -27,7 +27,7 @@ exports.findById = function(req, res) {
 Seance.findById(req.params.idSeance, function(err, seance) {
   if (err)
   res.send(err);
-  res.json(seance);
+  res.json({result : seance});
 });
 };
 exports.delete = function(req, res) {

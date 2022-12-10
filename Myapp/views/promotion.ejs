@@ -8,6 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">&#x9;<title>Formulaire | </title><!-- Bootstrap-->
     <%- include('head') %>
 </head>
+<style>
+    .cours_item{
+        cursor : pointer;
+    }
+    .cours_item:hover{
+        text-decoration : underline
+    }
+</style>
+    
 
 <body class="nav-md">
     <div class="container body">
@@ -76,12 +85,53 @@
                                     </table>
                                 </div>
                             </div>
+                            <div id="attendanceList">
+                                <div class="d-block">
+                                
+                                    <label class="col" for="seanceList">Liste de présence du</label>
+                                    <div class="col form-group">
+                                        <select class="form-control" id="seanceList">
+                                        
+                                        </select>
+                                    </div>
+                                
+                            </div>
+                            <div class="x_content">
+                                <table class="table table-striped">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Prénom</th>
+                                        <th scope="col">Matricule</th>
+                                        <th scope="col">Présence</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry</td>
+                                        <td>the Bird</td>
+                                        <td>@twitter</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                            </div>
                         </div>
                     </div>
-                <footer>
-                        
-                    </footer>
-                    <footer content=""></footer>
                 </div>
             </div>
 
@@ -104,7 +154,7 @@
                     const list_to_fill = document.getElementById("promotion_list_group")
                     let list_template = '';
                 //     // Loop to access all rows 
-                    for (let record of data) {
+                    for (let record of data.result) {
                         list_template += `<option value=${record.idPromotion}>${record.nom} ${record.filiere}</option>`;
                     }
                     // Setting innerHTML as tab variable
@@ -135,8 +185,7 @@
 
 
                 function showCourseList(data) {
-                    const list_to_fill = document.getElementById("course_list")
-                    
+                    const list_to_fill = document.getElementById("course_list");
                     
                     // Loop to access all rows 
                     document.getElementById('promotion_list').addEventListener('change', (e) => {
@@ -145,7 +194,7 @@
                             
                             if (record.Promotion_idPromotion == e.target.value) {
                                 list_template += `
-                                    <tr class="even pointer">
+                                    <tr class="even pointer cours_item"  data-idcours=${record.idCours}>
                                         <td>${record.idCours}</td>
                                         <td>${record.nom}</td>
                                         <td>${record.ponderation}</td>
@@ -157,8 +206,7 @@
                         // Fill the list with data
                         list_to_fill.innerHTML = list_template;
                     })
-                    
-                    
+                     
                 }
 
                 //Get course data
@@ -166,7 +214,73 @@
                     showCourseList(data)
                 });
             </script>
+            <script>
+                function formatDate(date) {
+                    var d = new Date(date),
+                        month = '' + (d.getMonth() + 1),
+                        day = '' + d.getDate(),
+                        year = d.getFullYear();
 
+                    if (month.length < 2) 
+                        month = '0' + month;
+                    if (day.length < 2) 
+                        day = '0' + day;
+
+                    return [year, month, day].join('-');
+                }
+
+                const seance_url='http://localhost:3000/api/v1/seance';
+
+                //Giving a API URL, that function hits a fetch to the URL & return the json response
+                async function getSeanceData(url) {
+
+                    const response = await fetch(url);
+
+                    // Storing data in form of JSON
+                    var data = await response.json();
+
+                    return data
+                }
+
+                function showSeanceList(data) {
+                    const list_to_fill = document.getElementById("seanceList")
+                    let list_template = '';
+                //     // Loop to access all rows 
+                    for (let record of data.result) {
+                        let seance_date = new Date(record.date),
+                        formatted_date = formatDate(seance_date)
+                        if(data.result.length){
+                            list_template += `<option value=${record.idSeance}>${formatted_date} de ${record.heure_debut} à ${record.heure_fin}</option>`;
+                        }else {
+                            list_template = "Aucune séance pour ce cours"
+                        }
+                        console.log(data)
+                    }
+                    // Setting innerHTML as tab variable
+                    list_to_fill.innerHTML = list_template;
+                    
+                }
+
+                //Get seance data
+                window.onload = function () {
+                    let course_list = document.getElementById('course_list');
+                    course_list.addEventListener('click', (e) => {
+                        if (e.target && e.target.nodeName == 'TD'){
+                            let idcours = e.target.parentNode.getAttribute('data-idcours'),
+                            url = seance_url + '/' + idcours;
+                            
+                            getSeanceData(url).then(data => {
+                                showSeanceList(data)
+                            });
+                        }
+                    }
+                    )
+                }
+                    
+                
+                
+                   
+            </script>
            
             <script src="stylesheets/vendors/jquery/dist/jquery.min.js"></script><!-- Bootstrap-->
             <script src="stylesheets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script><!-- FastClick-->
