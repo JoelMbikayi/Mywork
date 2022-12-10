@@ -57,12 +57,13 @@
                                             </ul>
                                         </li>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<li><a class="close-link"><i class="fa fa-close"></i></a></li>
                                     </ul>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="clearfix"></div>
-                                </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="x_content"><br>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<form class="form-horizontal form-label-left" id="demo-form2" data-parsley-validate="" method="post" action="/api/v1/etudiant">
+                                </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="x_content"><br>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                    <form class="form-horizontal form-label-left" id="demo-form2" data-parsley-validate="" method="post" action="/api/v1/etudiant">
                                         <div class="item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Matricule 
                                                 <span class="required">*</span>
                                             </label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
-                                            <div class="col-md-6 col-sm-6"><input class="form-control" id="first-name" name="matricule" type="text" required="required">
+                                            <div class="col-md-6 col-sm-6"><input class="form-control" id="first-name" name="matricule" type="text" required="required"><majuscule/>
                                             </div>
                                         </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                                         <div class="item form-group">
@@ -75,7 +76,8 @@
                                                 <span class="required">*</span>
                                             </label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                                             <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" id="role" name="Promotion_idPromotion" placeholder="Role" required="">
+                                                <select class="form-control" id="promotion" name="Promotion_idPromotion" placeholder="Role" required="">
+                                                    <option value="">Liste Promotion</option>
                                                     
                                                 </select></div>
                                         </div>
@@ -95,19 +97,64 @@
                                                 </div>
                                             </div>
                                         </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="ln_solid"></div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="item form-group">
-                                            <div class="col-md-6 col-sm-6 offset-md-3"><button class="btn btn-primary" type="button">Annuler</button>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<button class="btn btn-primary" type="reset">Reinitialiser</button>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<button class="btn btn-success" type="submit">Envoyer</button></div>
+                                            <div class="col-md-6 col-sm-6 offset-md-3"><button class="btn btn-primary" type="button">Annuler</button>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<button class="btn btn-primary" type="reset">Reinitialiser</button>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<button class="btn btn-primary">Envoyer</button></div>
                                         </div>
                                     </form>
+                                    
                                 </div>
+                                
                             </div>
+                            
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Formulaire <small>Ajout Bracelet</small></h2>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<ul class="dropdown-menu" role="menu">
+                                                <li><a class="dropdown-item" href="#">Settings 1</a></li>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<li><a class="dropdown-item" href="#">Settings 2</a></li>
+                                            </ul>
+                                        </li>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+                                    </ul>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="clearfix"></div>
+                                </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<div class="x_content"><br>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                    <form class="form-horizontal form-label-left" id="demo-form2" data-parsley-validate="" method="post" action="/api/v1/bracelet">
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Adress mac
+                                                <span class="required">*</span>
+                                            </label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                            <div class="col-md-6 col-sm-6"><input class="form-control" id="first-name" name="adress_mac" type="text" required="required">
+                                            </div>
+                                        </div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Matricule
+                                                <span class="required">*</span></label>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                                <div class="col-md-6 col-sm-6">
+                                                    <select name="Etudiant_matricule" id="etudiant_list_group" class="form-control">
+                                                        <option value="">Etudiant</option>
+                                                    </select>
+                                                </div>
+                                        </div><br>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                        
+                                        &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                       
+                                        <div class="ln_solid"></div>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                        <div class="item form-group">
+                                            <div class="col-md-6 col-sm-6 offset-md-3"><button class="btn btn-primary" type="button">Annuler</button>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<button class="btn btn-primary" type="reset">Reinitialiser</button>&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;<button class="btn btn-primary">Envoyer</button></div>
+                                        </div>
+                                    </form>
+                                    
+                                </div>
+                                
+                            </div>
+                            
                         </div>
                     </div><!-- /page content-->
+                    
                     <!-- footer content-->
                     <footer></footer><!-- /footer content-->
                 </div>
             </div><!-- jQuery-->
             <script>
-                const linkNode = document.querySelector('#role');
+                const linkNode = document.querySelector('#promotion');
                
                 
                     const api_url='http://localhost:3000/api/v1/promotion';
@@ -122,7 +169,7 @@
                             console.log(data);
                         }
                         
-                        retrieveCoordonnateurList(data)
+                        retrieveCoordonnateurList(data.result)
                     }
                     getapi(api_url);
 
@@ -144,6 +191,43 @@
                         
                     }
 
+            </script>
+            <script>
+                const etudiant_url='http://localhost:3000/api/v1/etudiant';
+
+                //Giving a API URL, that function hits a fetch to the URL & return the json response
+                async function getEtudiantData(url) {
+
+                    const response = await fetch(url);
+                    
+                    // Storing data in form of JSON
+                    var data = await response.json();
+                    if (response) {
+                        console.log(data);
+                    }
+                    
+                    showEtudiantList(data)
+                }
+                getEtudiantData(etudiant_url);
+                
+
+                //Get promotion data
+                const etudiant_data = getEtudiantData(promotion_url);
+
+                
+                function showEtudiantList(data) {
+                    const list_to_fill = document.getElementById("etudiant_list_group")
+                    let list_template = '';
+                //     // Loop to access all rows 
+                    for (let record of data.result) {
+                        list_template += `<option value=${record.matricule}>${record.nom_complet}</option>`;
+                    }
+                    // Setting innerHTML as tab variable
+                    list_to_fill.innerHTML = list_template;
+                    
+                }
+
+                showPromotionList(promotion_data);
             </script>
             <script src="stylesheets/vendors/jquery/dist/jquery.min.js"></script><!-- Bootstrap-->
             <script src="stylesheets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script><!-- FastClick-->

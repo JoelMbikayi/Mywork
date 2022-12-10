@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 
+
 const etudiantRoutes = require('/home/samuel/Documents/Web/Mywork/Myapp/routes/etudiant.route');
 const coordoRoutes = require('/home/samuel/Documents/Web/Mywork/Myapp/routes/coordonnateur.route');
 const PromotionRoutes = require('/home/samuel/Documents/Web/Mywork/Myapp/routes/promotion.route');
@@ -24,9 +25,11 @@ var dashboardRouter = require('./routes/index');
 var formRouter = require('./routes/index');
 var promoRouter = require('./routes/index');
 var secretaireRouter = require('./routes/index');
-var promotionL2glRouter = require("./routes/index");
+var auditoireRouter = require("./routes/index");
 var promotionL3glRouter = require("./routes/index");
-var Cour1Router = require("./routes/index");
+var seanceRouter = require("./routes/index");
+
+
 
 var app = express();
 
@@ -49,6 +52,14 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
 }));
+/*
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+  next();
+});
+*/
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -59,13 +70,17 @@ app.use('/api/v1/promotion', PromotionRoutes);
 app.use('/api/v1/compte', CompteRoutes);
 app.use('/api/v1/cours', CoursRoutes);
 app.use('/api/v1/coordonnees', CoordonneesRoutes);
+app.use('/api/v1/auditoire', AuditoireRoutes);
+app.use('/api/v1/seance', SeanceRoutes);
+app.use('/api/v1/presence', PresenceRoutes);
+app.use('/api/v1/bracelet', BraceletRoutes)
 app.use('/', indexRouter);
 
 
 
 app.use('/users', usersRouter);
 app.use('/', indexRouter);
-app.use('/Horaire', indexRouter);
+app.use('/seance', seanceRouter);
 app.use('/users', usersRouter);
 app.use('/cours', usersRouter);
 app.use('/dashboard', dashboardRouter);
@@ -73,19 +88,21 @@ app.use('/form', formRouter);
 app.use('/promotion', promoRouter);
 app.use('/secretaire', secretaireRouter);
 app.use('promotion',promoRouter);
-app.use('promotionL2gl',promotionL2glRouter);
-app.use('promotionL3gl',promotionL3glRouter);
-app.use('/analysemath',Cour1Router);
+//app.use('promotionL2gl',promotionL2glRouter);
+//app.use('promotionL3gl',promotionL3glRouter);
+app.use('/auditoire',auditoireRouter);
 
+
+app.use('/presence',auditoireRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-app.use(cors({
-    origin: 'http://localhost:3000'
-}))
+//app.use(cors({
+//    origin: 'http://localhost:3000'
+//}))
 
 // error handler
 app.use(function(err, req, res, next) {

@@ -4,8 +4,10 @@ var dbConn = require('./bd');
 var Seance = function(seance){
   this.idSeance = seance.idSeance;
   this.date     = seance.date;
-  this.duree  = seance.Cours_idCours;
+  this.Cours_idCours  = seance.Cours_idCours;
   this.Auditoire_idAuditoire= seance.Auditoire_idAuditoire;
+  this.heure_debut = seance.heure_debut;
+  this.heure_fin = seance.heure_fin;
 }
   
 Seance.create = function (newSeance, result) {
@@ -31,8 +33,8 @@ dbConn.query("Select * from seance where idSeance = ? ", idSeance, function (err
     }
   });
 };
-Bracelet.findAll = function (result) {
-dbConn.query("Select * seance", function (err, res) {
+Seance.findAll = function (result) {
+dbConn.query("Select * from seance", function (err, res) {
 if(err) {
   console.log("error: ", err);
   result(null, err);
@@ -44,8 +46,8 @@ else{
 });
 };
 
-Bracelet.delete = function(address_mac, result){
-dbConn.query("DELETE FROM seance WHERE adress_mac = ?", [address_mac], function (err, res) {
+Seance.delete = function(idSeance, result){
+dbConn.query("DELETE FROM seance WHERE idSeance = ?", [idSeance], function (err, res) {
 if(err) {
   console.log("error: ", err);
   result(null, err);
@@ -56,4 +58,4 @@ else{
 });
 };
 
-module.exports= Bracelet;
+module.exports= Seance;

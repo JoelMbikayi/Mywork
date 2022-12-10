@@ -7,7 +7,7 @@ Promotion.findAll(function(err, promotion) {
   console.log('controller')
   if (err)
   res.send(err);
-  res.json( promotion);
+  res.json({result : promotion});
 });
 };
 exports.create = function(req, res) {
@@ -19,6 +19,7 @@ if(req.body.constructor === Object && Object.keys(req.body).length === 0){
 Promotion.create(new_promotion, function(err, promotion) {
   if (err)
   res.send(err);
+  res.redirect('/promotion')
   res.json({error:false,message:"promotion added successfully!",data:promotion});
 });
 }

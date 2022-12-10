@@ -32,6 +32,18 @@ else{
 }
 });
 };
+Etudiant.findbyPromotion = function(Promotion_idPromotion, result){
+  dbConn.query("Select * from etudiant Where Promotion_idPromotion = ? ",  Promotion_idPromotion,function(err, res){
+    if(err){
+      console.log("error :", err);
+      result(null, err);
+    }
+    else{
+      console.log('etudiant :', res);
+      result(null, err);
+    }
+  })
+};
 Etudiant.findAll = function (result) {
 dbConn.query("Select * from etudiant", function (err, res) {
 if(err) {
@@ -44,6 +56,8 @@ else{
 }
 });
 };
+
+
 Etudiant.update = function(matricule, etudiant, result){
 dbConn.query("UPDATE etudiant SET nom_complet=?,genre=?,Promotion_idPromotion=? WHERE matricule = ?", [etudiant.nom_complet, etudiant.genre,etudiant.Promotion_idPromotion, etudiant.matricule], function (err, res) {
 if(err) {

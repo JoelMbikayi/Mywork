@@ -12,8 +12,13 @@ router.get('/', function(req, res, next) {
 
 // Retrieve a single employee with id
 router.get('/:matricule', etudiantController.findById);
+//
+router.get('/etprom/:Promotion_idPromotion',etudiantController.findbyPromotion);
 // Update a employee with id
+
 router.put('/:matricule', etudiantController.update);
+
+
 // Delete a employee with id
 router.delete('/:matricule', etudiantController.delete);
 module.exports = router

@@ -19,11 +19,21 @@ exports.create = function(req, res) {
     Etudiant.create(new_etudiant, function(err, etudiant) {
     if (err)
         res.send(err);
-        res.json({error:false,message:"Etudiant added successfully!",data:etudiant});
+        res.redirect('/form');
+        //res.json({error:false,message:"Etudiant added successfully!",data:etudiant});
 
         });
     }
 };
+
+exports.findbyPromotion = function(req, res){
+Etudiant.findbyPromotion(req.params.promotion_idPromotion, function(err, etudiant){
+    if(err)
+    res.send(err);
+    res.json(etudiant);
+  });
+};
+
 exports.findById = function(req, res) {
 Etudiant.findById(req.params.matricule, function(err, etudiant) {
   if (err)
