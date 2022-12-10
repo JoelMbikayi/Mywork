@@ -95,24 +95,16 @@
                     
                     // Storing data in form of JSON
                     var data = await response.json();
-                    if (response) {
-                        console.log(data);
-                    }
                     
-                    showPromotionList(data)
+                    return data;
                 }
-                getPromotionData(promotion_url);
                 
-
-                //Get promotion data
-                const promotion_data = getPromotionData(promotion_url);
-
                 
                 function showPromotionList(data) {
                     const list_to_fill = document.getElementById("promotion_list_group")
                     let list_template = '';
                 //     // Loop to access all rows 
-                    for (let record of data.result) {
+                    for (let record of data) {
                         list_template += `<option value=${record.idPromotion}>${record.nom} ${record.filiere}</option>`;
                     }
                     // Setting innerHTML as tab variable
@@ -120,7 +112,12 @@
                     
                 }
 
-                showPromotionList(promotion_data);
+                //Get promotion data
+                getPromotionData(promotion_url).then(data => {
+                    showPromotionList(data)
+                })
+
+                
             </script>
             <script>
                 const course_url='http://localhost:3000/api/v1/cours';
@@ -132,47 +129,42 @@
                     
                     // Storing data in form of JSON
                     var data = await response.json();
-                    if (response) {
-                        console.log(data);
-                    }
                     
-                    showCourseList(data)
+                    return data
                 }
-                getCourseData(course_url);
-
-
-                //Get course data
-                const course_data = getCourseData(course_url);
 
 
                 function showCourseList(data) {
                     const list_to_fill = document.getElementById("course_list")
                     
                     
-                // Loop to access all rows 
-                document.getElementById('promotion_list').addEventListener('change', (e) => {
-                    let list_template = '';
-                    for (let record of data.result) {
-                        
-                        if (record.Promotion_idPromotion == e.target.value) {
-                            list_template += `
-                                <tr class="even pointer">
-                                    <td>${record.idCours}</td>
-                                    <td>${record.nom}</td>
-                                    <td>${record.ponderation}</td>
-                                </tr>
-                                `;
+                    // Loop to access all rows 
+                    document.getElementById('promotion_list').addEventListener('change', (e) => {
+                        let list_template = '';
+                        for (let record of data.result) {
+                            
+                            if (record.Promotion_idPromotion == e.target.value) {
+                                list_template += `
+                                    <tr class="even pointer">
+                                        <td>${record.idCours}</td>
+                                        <td>${record.nom}</td>
+                                        <td>${record.ponderation}</td>
+                                    </tr>
+                                    `;
+                            }
+                            
                         }
-                        
-                    }
-                     // Fill the list with data
-                     list_to_fill.innerHTML = list_template;
-                })
+                        // Fill the list with data
+                        list_to_fill.innerHTML = list_template;
+                    })
                     
                     
                 }
 
-                showPromotionList(promotion_data);
+                //Get course data
+                getCourseData(course_url).then(data => {
+                    showCourseList(data)
+                });
             </script>
 
            
