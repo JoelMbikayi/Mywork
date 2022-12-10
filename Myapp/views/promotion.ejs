@@ -85,7 +85,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <div id="attendanceList">
+                            <div id="">
                                 <div class="d-block">
                                 
                                     <label class="col" for="seanceList">Liste de présence du</label>
@@ -107,25 +107,15 @@
                                         <th scope="col">Présence</th>
                                       </tr>
                                     </thead>
-                                    <tbody>
-                                      <tr>
+                                    <tbody id="attendanceList">
+                                      <!-- <tr>
                                         <th scope="row">1</th>
                                         <td>Mark</td>
                                         <td>Otto</td>
                                         <td>@mdo</td>
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                      </tr>
+                                        <td></td>
+                                      </tr> -->
+                                      
                                     </tbody>
                                   </table>
                             </div>
@@ -276,8 +266,40 @@
                     }
                     )
                 }
+
+                function showAttendanceList(e, data){
+                        let list_to_fill = document.getElementById('attendanceList')
+                        let list_template = '';
+                        for (let record of data.result) {
+                            
+                            if (record.idSeance == e.target.value) {
+                                let i = 0;
+                                list_template += `
+                                    <tr>
+                                        <th scope="row">${++i}</th>
+                                        <td>${record.nom_complet}</td>
+                                        <td></td>
+                                        <td>${record.matricule}</td>
+                                        <td>${record.presence}</td>
+                                    </tr> 
+                                `;
+                            }
+                            
+                        }
+                        // Fill the list with data
+                        list_to_fill.innerHTML = list_template;
                     
-                
+                }
+                    
+                // Loop to access all rows 
+               
+                        const PRESENCE_URL = 'http://localhost:3000/api/v1/presence';
+                        getCourseData(PRESENCE_URL).then(data => {
+                            document.getElementById('seanceList').addEventListener('click', (e) => {
+                                showAttendanceList(e, data)
+                            })
+                        });
+                    
                 
                    
             </script>
