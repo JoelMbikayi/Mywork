@@ -15,6 +15,10 @@ const PromotionRoutes = require('/home/samuel/Documents/Web/Mywork/Myapp/routes/
 const CompteRoutes = require('/home/samuel/Documents/Web/Mywork/Myapp/routes/compte.route');
 const CoursRoutes = require('/home/samuel/Documents/Web/Mywork/Myapp/routes/cours.route');
 const CoordonneesRoutes = require('/home/samuel/Documents/Web/Mywork/Myapp/routes/coordonnees.route');
+const AuditoireRoutes = require('/home/samuel/Documents/Web/Mywork/Myapp/routes/auditoire.route');
+const SeanceRoutes = require('/home/samuel/Documents/Web/Mywork/Myapp/routes/seance.route');
+const PresenceRoutes = require('/home/samuel/Documents/Web/Mywork/Myapp/routes/presence.route');
+const BraceletRoutes = require('/home/samuel/Documents/Web/Mywork/Myapp/routes/bracelet.route');
 // using as middleware
 
 var indexRouter = require('./routes/index');

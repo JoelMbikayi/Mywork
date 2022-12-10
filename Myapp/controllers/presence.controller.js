@@ -1,5 +1,5 @@
 'use strict';
-const Presence = require('../models/Presence.model');
+const Presence = require('../models/presence.model');
 
 exports.findAll = function(req, res) {
 Presence.findAll(function(err, presence) {
