@@ -82,7 +82,7 @@ getCourseData(COURSE_URL).then(data => {
 });
 
 
-export default function formatDate(date) {
+function formatDate(date) {
     var d = new Date(date),
         month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
