@@ -82,7 +82,7 @@ getCourseData(COURSE_URL).then(data => {
 });
 
 
-function formatDate(date) {
+export default function formatDate(date) {
     var d = new Date(date),
         month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
@@ -141,6 +141,7 @@ window.onload = function () {
             getSeanceData(url).then(data => {
                 showSeanceList(data)
             });
+            // We fill attendance list after clicking on a course item
             getCourseData(PRESENCE_URL).then(data => {
                 showAttendanceList(document.getElementById('seanceList'), data)
             });
@@ -150,37 +151,36 @@ window.onload = function () {
 }
 
 function showAttendanceList(e, data){
-        let list_to_fill = document.getElementById('attendanceList')
-        let list_template = '';
-        let i = 0;
+    let list_to_fill = document.getElementById('attendanceList');
+    let list_template = '';
+    let i = 0;
+    
+    for (let record of data.result) {
         
-        for (let record of data.result) {
+        if (record.idSeance == e.value) {
             
-            if (record.idSeance == e.value) {
-                
-                list_template += `
-                    <tr>
-                        <th scope="row">${++i}</th>
-                        <td>${record.nom_complet}</td>
-                        <td>${record.matricule}</td>
-                        <td>${record.presence}</td>
-                    </tr> 
-                `;
-            }
-            
+            list_template += `
+                <tr>
+                    <th scope="row">${++i}</th>
+                    <td>${record.nom_complet}</td>
+                    <td>${record.matricule}</td>
+                    <td>${record.presence}</td>
+                </tr> 
+            `;
         }
-        // Fill the list with data
-        list_to_fill.innerHTML = list_template;
+        
+    }
+    // Fill the list with data
+    list_to_fill.innerHTML = list_template;
     
 }
 
-
-        
-        getCourseData(PRESENCE_URL).then(data => {
-            document.getElementById('seanceList').addEventListener('change', (e) => {
-                showAttendanceList(e.target, data)
-            })
-        });
+ 
+getCourseData(PRESENCE_URL).then(data => {
+    document.getElementById('seanceList').addEventListener('change', (e) => {
+        showAttendanceList(e.target, data);
+    })
+});
     
 
     

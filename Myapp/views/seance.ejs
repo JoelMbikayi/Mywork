@@ -67,49 +67,65 @@
                                 <tr class="headings">
                                     <th class="column-title">Heure </th>
                                     <th class="column-title">Lundi 
-                                        <input type="date" name="date" min="2018-01-01" max="2050-12-31" id="start"></th>
+                                        <input type="date" name="date" min="2018-01-01" max="2050-12-31" id="start">
+                                    </th>
                                 </tr>
                             </thead>
-                        <tbody>
-                            <tr>
-                                <td>De<input type="time" id="appt" name="heure_debut" min="08:00" max="18:00" required>
-                                    <br/><br/>
-                                     A<input type="time" id="appt" name="heure_fin" min="09:00" max="18:00" required>
-                                </td>
-                                <td>
-                                    <Select class="form-control" name="Cours_idCours">
-                                    
-                                    <optgroup class="cours" id="course_list" >List cours</optgroup>
-                                    </Select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Auditoire</td>
-                                <td>
-                                    <Select class="form-control" id="auditoire" name="Auditoire_idAuditoire" >
-                                    <optgroup >List auditoire</optgroup>
-                                </Select></td>
-                               
-                            </tr>
-                           
-                         
-                            
-                        </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>De<input type="time" id="appt" name="heure_debut" min="08:00" max="18:00" required>
+                                        <br/><br/>
+                                        A<input type="time" id="appt" name="heure_fin" min="09:00" max="18:00" required>
+                                    </td>
+                                    <td>
+                                        <Select class="form-control" name="Cours_idCours">
+                                            <optgroup class="cours" id="course_list" >List cours</optgroup>
+                                        </Select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Auditoire</td>
+                                    <td>
+                                        <Select class="form-control" id="auditoire" name="Auditoire_idAuditoire" >
+                                        <optgroup >Liste auditoire</optgroup>
+                                    </Select></td>
+                                </tr>
+                            </tbody>
                         </table>
                         <button class="btn btn-success" type="submit">Creer</button>
                     </form>
-                   
-                    </p>
-                <div class="row" style="display: inline-block;">
-                    <div class="tile_count"></div>
+                </p>
+                <div class="col" style="display: inline-block;">
+                    <div class="tile_count">
+                        <table class="table text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col" colspan="4">Séance programmée</th>
+                                </tr>
+                                <tr>
+                                    <th class="cours_date_col">Date</th>
+                                    <th class="cours_name_col">Cours</th>
+                                    <th class="start_time_col">Heure de début</th>
+                                    <th class="end_time_col">Heure de fin</th>
+                                </tr>
+                            </thead>
+                            <tbody id="schedule">
+                                <tr class="schedule_entries">
+                                    <td class="cours_date">2022-11-05</td>
+                                    <td class="cours_name">Java</td>
+                                    <td class="start_time">11h</td>
+                                    <td class="end_time">12h</td>
+                                </tr>
+                            </tbody>
+                          </table>
+                    </div>
                 </div>
             </div><br><!-- /page content-->
-            <!-- footer content-->
-            <footer></footer><!-- /footer content-->
+            
         </div>
     </div><!-- jQuery-->
     <script>
-        document.get
+        
         const auditoire_url='http://localhost:3000/api/v1/auditoire';
 
         //Giving a API URL, that function hits a fetch to the URL & return the json response
@@ -163,20 +179,22 @@
 
         
         function showPromotionList(data) {
-            const list_to_fill = document.getElementById("promotion_list_group")
+            const LIST_TO_FILL = document.getElementById("promotion_list_group")
             let list_template = '';
         //     // Loop to access all rows 
             for (let record of data.result) {
                 list_template += `<option value=${record.idPromotion}>${record.nom} ${record.filiere}</option>`;
             }
             // Setting innerHTML as tab variable
-            list_to_fill.innerHTML = list_template;
+            LIST_TO_FILL.innerHTML = list_template;
             
         }
 
         showPromotionList(promotion_data);
     </script>
     <script>
+        
+
         const course_url='http://localhost:3000/api/v1/cours';
 
         //Giving a API URL, that function hits a fetch to the URL & return the json response
@@ -200,27 +218,49 @@
 
 
         function showCourseList(data) {
-            const list_to_fill = document.getElementById("course_list")
+            const LIST_TO_FILL = document.getElementById("course_list");
             
             
-        // Loop to access all rows 
-        document.getElementById('promotion_list').addEventListener('change', (e) => {
-            let list_template = '';
-            for (let record of data.result) {
-                
-                if (record.Promotion_idPromotion == e.target.value) {
-                    list_template += `<option value=${record.idCours}>${record.nom}</option>`;
+            document.getElementById('promotion_list').addEventListener('change', (e) => {
+                let list_template = '';
+
+                for (let record of data.result) {
+                    
+                    if (record.Promotion_idPromotion == e.target.value) {
+                        list_template += `<option value=${record.idCours}>${record.nom}</option>`;
+                    }
+
                 }
-                
-            }
-             // Fill the list with data
-             list_to_fill.innerHTML = list_template;
-        })
-            
+                // Fill the list with data
+                LIST_TO_FILL.innerHTML = list_template;
+            })
             
         }
-
         showPromotionList(promotion_data);
+
+        function showSchedule(data) {
+            const LIST_TO_FILL = document.getElementById("schedule");
+            for (let record of data.result) {
+                
+                let formatted_date = formatDate(record.date)
+                if (record.Promotion_idPromotion == e.target.value) {
+                    list_template += `
+                        <tr class="schedule_entries">
+                            <td class="cours_date">${formatted_date}</td>
+                            <td class="cours_name">${record.nom}</td>
+                            <td class="start_time">${record.heure_debut}</td>
+                            <td class="end_time">${record.heure_fin}</td>
+                        </tr>
+                    `;
+                }
+
+            }
+            // Fill the list with data
+            LIST_TO_FILL.innerHTML = list_template;
+
+        }
+
+
     </script>
     <script src="../stylesheets/vendors/jquery/dist/jquery.min.js"></script><!-- Bootstrap-->
     <script src="../stylesheets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script><!-- FastClick-->
