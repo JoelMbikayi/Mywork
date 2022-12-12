@@ -101,8 +101,7 @@
                                     <thead>
                                       <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Nom</th>
-                                        <th scope="col">Prénom</th>
+                                        <th scope="col">Nom complet</th>
                                         <th scope="col">Matricule</th>
                                         <th scope="col">Présence</th>
                                       </tr>
@@ -180,7 +179,7 @@
                     // Loop to access all rows 
                     document.getElementById('promotion_list').addEventListener('change', (e) => {
                         let list_template = '';
-                        
+
                         //We empty #attendanceList and #seanceList
                         document.getElementById('seanceList').innerHTML = "";
                         document.getElementById('attendanceList').innerHTML = "";
@@ -290,7 +289,6 @@
                                     <tr>
                                         <th scope="row">${++i}</th>
                                         <td>${record.nom_complet}</td>
-                                        <td></td>
                                         <td>${record.matricule}</td>
                                         <td>${record.presence}</td>
                                     </tr> 
