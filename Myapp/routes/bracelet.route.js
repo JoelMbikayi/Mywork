@@ -11,9 +11,9 @@ router.get('API', function (req,res, next) {
 
 router.post('/', braceletController.create);
 // Retrieve a single employee with id
-router.get('/:address_mac',braceletController.findById);
+router.get('/:adress_mac', braceletController.findById);
 // Update a employee with id
 //router.put('/:login', braceletController.update);
 // Delete a employee with id
-router.delete('/:address_mac',braceletController.delete);
+router.delete('/:adress_mac',braceletController.delete);
 module.exports = router

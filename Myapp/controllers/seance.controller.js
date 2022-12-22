@@ -12,6 +12,7 @@ Seance.findAll(function(err, seance) {
 exports.create = function(req, res) {
 const new_seance = new Seance(req.body);
 //handles null error
+console.log(new_seance);
 if(req.body.constructor === Object && Object.keys(req.body).length === 0){
   res.status(400).send({ error:true, message: 'Please provide all required field' });
 }else{
@@ -24,7 +25,7 @@ Seance.create(new_seance, function(err, seance) {
 }
 };
 exports.findById = function(req, res) {
-Seance.findById(req.params.idSeance, function(err, seance) {
+Seance.findById(req.params.Cours_idCours, function(err, seance) {
   if (err)
   res.send(err);
   res.json({result : seance});

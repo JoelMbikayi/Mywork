@@ -124,127 +124,110 @@
             
         </div>
     </div><!-- jQuery-->
-    <script>
-        
-        const auditoire_url='http://localhost:3000/api/v1/auditoire';
 
-        //Giving a API URL, that function hits a fetch to the URL & return the json response
-        linkAudit = document.getElementById("auditoire")
-        async function getAuditoireData(url) {
+<script>
 
-            const response = await fetch(url);
-            
-            // Storing data in form of JSON
-            var data = await response.json();
-            if (response) {
-                console.log(data.result);
-            }
-            
-            showAuditoire(data.result);
+    const auditoire_url='http://localhost:3000/api/v1/auditoire';
+    //Giving a API URL, that function hits a fetch to the URL & return the json response
+    linkAudit = document.getElementById("auditoire")
+    async function getAuditoireData(url) {
+        const response = await fetch(url);
+
+        // Storing data in form of JSON
+        var data = await response.json();
+        if (response) {
+            console.log(data.result);
         }
-        getAuditoireData(auditoire_url);
-        //Get promotion data
-        const auditoire_data = getPromotionData(auditoire_url);
 
-        function showAuditoire(data) {
-              //  const table_to_fill = document.getElementById("role")
-                // Loop to access all rows 
-                for (let record of data) {   
+        showAuditoire(data.result);
+    }
+    getAuditoireData(auditoire_url);
+    //Get promotion data
+    const auditoire_data = getPromotionData(auditoire_url);
+    function showAuditoire(data) {
+        //  const table_to_fill = document.getElementById("role")
+        // Loop to access all rows
+        for (let record of data) {
             linkAudit.innerHTML +=`<option value=${record.idAuditoire}>${record.nom} </option>`;
-                }
-                // Setting innerHTML as tab variable               
-            }
-    </script>
-    <script>
-        const promotion_url='http://localhost:3000/api/v1/promotion';
-
-        //Giving a API URL, that function hits a fetch to the URL & return the json response
-        async function getPromotionData(url) {
-
-            const response = await fetch(url);
-            
-            // Storing data in form of JSON
-            var data = await response.json();
-            if (response) {
-                console.log(data);
-            }
-            
-            showPromotionList(data)
         }
-        getPromotionData(promotion_url);
-        
+        // Setting innerHTML as tab variable
+    }
+</script>
+<script>
+    const promotion_url='http://localhost:3000/api/v1/promotion';
+    //Giving a API URL, that function hits a fetch to the URL & return the json response
+    async function getPromotionData(url) {
+        const response = await fetch(url);
 
-        //Get promotion data
-        const promotion_data = getPromotionData(promotion_url);
+        // Storing data in form of JSON
+        var data = await response.json();
+        if (response) {
+            console.log(data);
+        }
 
-        
-        function showPromotionList(data) {
-            const LIST_TO_FILL = document.getElementById("promotion_list_group")
+        showPromotionList(data)
+    }
+    getPromotionData(promotion_url);
+
+    //Get promotion data
+    const promotion_data = getPromotionData(promotion_url);
+
+    function showPromotionList(data) {
+        const LIST_TO_FILL = document.getElementById("promotion_list_group")
+        let list_template = '';
+        //     // Loop to access all rows
+        for (let record of data.result) {
+            list_template += `<option value=${record.idPromotion}>${record.nom} ${record.filiere}</option>`;
+        }
+        // Setting innerHTML as tab variable
+        LIST_TO_FILL.innerHTML = list_template;
+
+    }
+    showPromotionList(promotion_data);
+</script>
+<script>
+
+    const course_url='http://localhost:3000/api/v1/cours';
+    //Giving a API URL, that function hits a fetch to the URL & return the json response
+    async function getCourseData(url) {
+        const response = await fetch(url);
+
+        // Storing data in form of JSON
+        var data = await response.json();
+        if (response) {
+            console.log(data);
+        }
+
+        showCourseList(data)
+    }
+    getCourseData(course_url);
+    //Get course data
+    const course_data = getCourseData(course_url);
+    function showCourseList(data) {
+        const LIST_TO_FILL = document.getElementById("course_list");
+
+
+        document.getElementById('promotion_list').addEventListener('change', (e) => {
             let list_template = '';
-        //     // Loop to access all rows 
             for (let record of data.result) {
-                list_template += `<option value=${record.idPromotion}>${record.nom} ${record.filiere}</option>`;
-            }
-            // Setting innerHTML as tab variable
-            LIST_TO_FILL.innerHTML = list_template;
-            
-        }
 
-        showPromotionList(promotion_data);
-    </script>
-    <script>
-        
-
-        const course_url='http://localhost:3000/api/v1/cours';
-
-        //Giving a API URL, that function hits a fetch to the URL & return the json response
-        async function getCourseData(url) {
-
-            const response = await fetch(url);
-            
-            // Storing data in form of JSON
-            var data = await response.json();
-            if (response) {
-                console.log(data);
-            }
-            
-            showCourseList(data)
-        }
-        getCourseData(course_url);
-
-
-        //Get course data
-        const course_data = getCourseData(course_url);
-
-
-        function showCourseList(data) {
-            const LIST_TO_FILL = document.getElementById("course_list");
-            
-            
-            document.getElementById('promotion_list').addEventListener('change', (e) => {
-                let list_template = '';
-
-                for (let record of data.result) {
-                    
-                    if (record.Promotion_idPromotion == e.target.value) {
-                        list_template += `<option value=${record.idCours}>${record.nom}</option>`;
-                    }
-
-                }
-                // Fill the list with data
-                LIST_TO_FILL.innerHTML = list_template;
-            })
-            
-        }
-        showPromotionList(promotion_data);
-
-        function showSchedule(data) {
-            const LIST_TO_FILL = document.getElementById("schedule");
-            for (let record of data.result) {
-                
-                let formatted_date = formatDate(record.date)
                 if (record.Promotion_idPromotion == e.target.value) {
-                    list_template += `
+                    list_template += `<option value=${record.idCours}>${record.nom}</option>`;
+                }
+            }
+            // Fill the list with data
+            LIST_TO_FILL.innerHTML = list_template;
+        })
+
+    }
+    showPromotionList(promotion_data);
+    function showSchedule(data) {
+        const LIST_TO_FILL = document.getElementById("schedule");
+        for (let record of data.result) {
+
+            let formatted_date = formatDate(record.date)
+            if (record.Promotion_idPromotion == e.target.value) {
+                list_template += `
                         <tr class="schedule_entries">
                             <td class="cours_date">${formatted_date}</td>
                             <td class="cours_name">${record.nom}</td>
@@ -252,40 +235,36 @@
                             <td class="end_time">${record.heure_fin}</td>
                         </tr>
                     `;
-                }
-
             }
-            // Fill the list with data
-            LIST_TO_FILL.innerHTML = list_template;
-
         }
-
-
-    </script>
-    <script src="../stylesheets/vendors/jquery/dist/jquery.min.js"></script><!-- Bootstrap-->
-    <script src="../stylesheets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script><!-- FastClick-->
-    <script src="../stylesheets/vendors/fastclick/lib/fastclick.js"></script><!-- NProgress-->
-    <script src="../stylesheets/vendors/nprogress/nprogress.js"></script><!-- Chart.js-->
-    <script src="../stylesheets/vendors/Chart.js/dist/Chart.min.js"></script><!-- gauge.js-->
-    <script src="../stylesheets/vendors/gauge.js/dist/gauge.min.js"></script><!-- bootstrap-progressbar-->
-    <script src="../stylesheets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script><!-- iCheck-->
-    <script src="../stylesheets/vendors/iCheck/icheck.min.js"></script><!-- Skycons-->
-    <script src="../stylesheets/vendors/skycons/skycons.js"></script><!-- Flot-->
-    <script src="../stylesheets/vendors/Flot/jquery.flot.js"></script>
-    <script src="../stylesheets/vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../stylesheets/vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../stylesheets/vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../stylesheets/vendors/Flot/jquery.flot.resize.js"></script><!-- Flot plugins-->
-    <script src="../stylesheets/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../stylesheets/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../stylesheets/vendors/flot.curvedlines/curvedLines.js"></script><!-- DateJS-->
-    <script src="../stylesheets/vendors/DateJS/build/date.js"></script><!-- JQVMap-->
-    <script src="../stylesheets/vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="../stylesheets/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../stylesheets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script><!-- bootstrap-daterangepicker-->
-    <script src="../stylesheets/vendors/moment/min/moment.min.js"></script>
-    <script src="../stylesheets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script><!-- Custom Theme Scripts-->
-    <script src="../stylesheets/build/js/custom.min.js"></script>
+        // Fill the list with data
+        LIST_TO_FILL.innerHTML = list_template;
+    }
+</script>
+<script src="../stylesheets/vendors/jquery/dist/jquery.min.js"></script><!-- Bootstrap-->
+<script src="../stylesheets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script><!-- FastClick-->
+<script src="../stylesheets/vendors/fastclick/lib/fastclick.js"></script><!-- NProgress-->
+<script src="../stylesheets/vendors/nprogress/nprogress.js"></script><!-- Chart.js-->
+<script src="../stylesheets/vendors/Chart.js/dist/Chart.min.js"></script><!-- gauge.js-->
+<script src="../stylesheets/vendors/gauge.js/dist/gauge.min.js"></script><!-- bootstrap-progressbar-->
+<script src="../stylesheets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script><!-- iCheck-->
+<script src="../stylesheets/vendors/iCheck/icheck.min.js"></script><!-- Skycons-->
+<script src="../stylesheets/vendors/skycons/skycons.js"></script><!-- Flot-->
+<script src="../stylesheets/vendors/Flot/jquery.flot.js"></script>
+<script src="../stylesheets/vendors/Flot/jquery.flot.pie.js"></script>
+<script src="../stylesheets/vendors/Flot/jquery.flot.time.js"></script>
+<script src="../stylesheets/vendors/Flot/jquery.flot.stack.js"></script>
+<script src="../stylesheets/vendors/Flot/jquery.flot.resize.js"></script><!-- Flot plugins-->
+<script src="../stylesheets/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+<script src="../stylesheets/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+<script src="../stylesheets/vendors/flot.curvedlines/curvedLines.js"></script><!-- DateJS-->
+<script src="../stylesheets/vendors/DateJS/build/date.js"></script><!-- JQVMap-->
+<script src="../stylesheets/vendors/jqvmap/dist/jquery.vmap.js"></script>
+<script src="../stylesheets/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+<script src="../stylesheets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script><!-- bootstrap-daterangepicker-->
+<script src="../stylesheets/vendors/moment/min/moment.min.js"></script>
+<script src="../stylesheets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script><!-- Custom Theme Scripts-->
+<script src="../stylesheets/build/js/custom.min.js"></script>
 </body>
 
 </html>

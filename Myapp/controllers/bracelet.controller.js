@@ -1,5 +1,6 @@
 'use strict';
 const Bracelet = require('../models/bracelet.model');
+const Etudiant = require("../models/etudiant.model");
 
 exports.findAll = function(req, res) {
 Bracelet.findAll(function(err, bracelet) {
@@ -18,18 +19,15 @@ if(req.body.constructor === Object && Object.keys(req.body).length === 0){
 Bracelet.create(new_bracelet, function(err, bracelet) {
   if (err)
   res.send(err);
-  res.redirect('/dashboard');
+  res.redirect('/form');
  // res.json({error:false,message:"Compte added successfully!",data:compte});
 });
 }
 };
 exports.findById = function(req, res) {
-Bracelet.findById(req.params.login, function(err, bracelet) {
-  if (err)
-  res.send(err);
-  res.json(bracelet);
-});
-};
+  Bracelet.findById(req.params.adress_mac );
+  };
+  
 exports.delete = function(req, res) {
 Bracelet.delete( req.params.login, function(err, bracelet) {
   if (err)

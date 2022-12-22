@@ -27,7 +27,7 @@ router.post('/index', function(request, response) {
 				request.session.loggedin = true;
 				request.session.login = login;
 				// Redirect to home page
-				response.redirect('/dashboard');
+				response.redirect('/seance');
 			} else {
 				response.redirect('/');
 			}			
