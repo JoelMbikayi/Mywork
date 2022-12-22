@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-
-
-=======
->>>>>>> main
 const PROMOTION_URL = 'http://localhost:3000/api/v1/promotion';
 const COURSE_URL='http://localhost:3000/api/v1/cours';
 
@@ -10,7 +5,6 @@ const COURSE_URL='http://localhost:3000/api/v1/cours';
 async function getPromotionData(url) {
 
     const response = await fetch(url);
-<<<<<<< HEAD
     
     // Storing data in form of JSON
     var data = await response.json();
@@ -23,30 +17,12 @@ function showPromotionList(data) {
     const list_to_fill = document.getElementById("promotion_list_group")
     let list_template = '';
     // Loop to access all rows 
-=======
-
-    // Storing data in form of JSON
-    var data = await response.json();
-
-    return data;
-}
-
-
-function showPromotionList(data) {
-    const list_to_fill = document.getElementById("promotion_list_group")
-    let list_template = '';
-    // Loop to access all rows
->>>>>>> main
     for (let record of data.result) {
         list_template += `<option value=${record.idPromotion}>${record.nom} ${record.filiere}</option>`;
     }
     // Setting innerHTML as tab variable
     list_to_fill.innerHTML = list_template;
-<<<<<<< HEAD
     
-=======
-
->>>>>>> main
 }
 
 //Get promotion data
@@ -54,41 +30,24 @@ getPromotionData(PROMOTION_URL).then(data => {
     showPromotionList(data)
 })
 
-<<<<<<< HEAD
                 
     
-=======
-
-
->>>>>>> main
 //Giving a API URL, that function hits a fetch to the URL & return the json response
 async function getCourseData(url) {
 
     const response = await fetch(url);
-<<<<<<< HEAD
     
     // Storing data in form of JSON
     var data = await response.json();
     
-=======
-
-    // Storing data in form of JSON
-    var data = await response.json();
-
->>>>>>> main
     return data
 }
 
 
 function showCourseList(data) {
     const list_to_fill = document.getElementById("course_list");
-<<<<<<< HEAD
     
     // Loop to access all rows 
-=======
-
-    // Loop to access all rows
->>>>>>> main
     document.getElementById('promotion_list').addEventListener('change', (e) => {
         let list_template = '';
 
@@ -97,11 +56,7 @@ function showCourseList(data) {
         document.getElementById('attendanceList').innerHTML = "";
 
         for (let record of data.result) {
-<<<<<<< HEAD
             
-=======
-
->>>>>>> main
             if (record.Promotion_idPromotion == e.target.value) {
                 list_template += `
                     <tr class="even pointer cours_item"  data-idcours=${record.idCours}>
@@ -111,20 +66,12 @@ function showCourseList(data) {
                     </tr>
                     `;
             }
-<<<<<<< HEAD
             
-=======
-
->>>>>>> main
         }
         // Fill the list with data
         list_to_fill.innerHTML = list_template;
     })
-<<<<<<< HEAD
         
-=======
-
->>>>>>> main
 }
 
 //Get course data
@@ -139,15 +86,9 @@ function formatDate(date) {
         day = '' + d.getDate(),
         year = d.getFullYear();
 
-<<<<<<< HEAD
     if (month.length < 2) 
         month = '0' + month;
     if (day.length < 2) 
-=======
-    if (month.length < 2)
-        month = '0' + month;
-    if (day.length < 2)
->>>>>>> main
         day = '0' + day;
 
     return [year, month, day].join('-');
@@ -170,43 +111,27 @@ async function getSeanceData(url) {
 function showSeanceList(data) {
     const list_to_fill = document.getElementById("seanceList")
     let list_template = '';
-<<<<<<< HEAD
-    console.log(data.result)
+
     if (data.result.length){
         for (let record of data.result) {
             let seance_date = new Date(record.date),
             formatted_date = formatDate(seance_date);
             
-            list_template += `<option value=${record.idSeance}>${formatted_date} de ${record.heure_debut} à ${record.heure_fin}</option>`;
+            list_template += `<option value=${record.idSeance}>${record.date} de ${record.heure_debut} à ${record.heure_fin}</option>`;
             
-=======
-    
-    if (data.length){
-        for (let record of data) {
-            let seance_date = new Date(record.date),
-                formatted_date = formatDate(seance_date);
-
-            list_template += `<option value=${record.idSeance}>${formatted_date} de ${record.heure_debut} à ${record.heure_fin}</option>`;
-
->>>>>>> main
         }
     }else{
         list_template = `<option value=${null}>Aucune séance enregistrée</option>`;
     }
     // Setting innerHTML as tab variable
     list_to_fill.innerHTML = list_template;
-<<<<<<< HEAD
     
-=======
-
->>>>>>> main
 }
 
 //Get seance data
 window.onload = function () {
     let course_list = document.getElementById('course_list');
     course_list.addEventListener('click', (e) => {
-<<<<<<< HEAD
         if (e.target && e.target.nodeName == 'TD'){
             let idcours = e.target.parentNode.getAttribute('data-idcours'),
             url = SEANCE_URL + '/' + idcours;
@@ -220,23 +145,6 @@ window.onload = function () {
             });
         }
     }
-=======
-            if (e.target && e.target.nodeName == 'TD'){
-                let idcours = e.target.parentNode.getAttribute('data-idcours'),
-                    url = SEANCE_URL + '/' + idcours;
-
-                getSeanceData(url).then(data => {
-                    console.log(data)
-                    showSeanceList(data)
-                });
-                // We fill attendance list after clicking on a course item
-                getCourseData(PRESENCE_URL).then(data => {
-                    
-                    showAttendanceList(document.getElementById('seanceList'), data)
-                });
-            }
-        }
->>>>>>> main
     )
 }
 
@@ -244,29 +152,20 @@ function showAttendanceList(e, data){
     let list_to_fill = document.getElementById('attendanceList');
     let list_template = '';
     let i = 0;
-<<<<<<< HEAD
-    
+    console.log(data)
     for (let record of data.result) {
         
-        if (record.idSeance == e.value) {
+        if (record.Seance_idSeance) {
             
-=======
-
-    for (let record of data.result) {
-
-        if (record.idSeance == e.value) {
-
->>>>>>> main
             list_template += `
                 <tr>
                     <th scope="row">${++i}</th>
                     <td>${record.nom_complet}</td>
-                    <td>${record.matricule}</td>
+                    <td>${record.Etudiant_matricule}</td>
                     <td>${record.presence}</td>
                 </tr> 
             `;
         }
-<<<<<<< HEAD
         
     }
     // Fill the list with data
@@ -275,25 +174,11 @@ function showAttendanceList(e, data){
 }
 
  
-=======
-
-    }
-    // Fill the list with data
-    list_to_fill.innerHTML = list_template;
-
-}
-
-
->>>>>>> main
 getCourseData(PRESENCE_URL).then(data => {
     document.getElementById('seanceList').addEventListener('change', (e) => {
         showAttendanceList(e.target, data);
     })
-<<<<<<< HEAD
 });
     
 
     
-=======
-});
->>>>>>> main

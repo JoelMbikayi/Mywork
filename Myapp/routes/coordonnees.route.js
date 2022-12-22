@@ -3,7 +3,7 @@ const express = require('express')
 const router = express.Router()
 const coordonneesController =   require('../controllers/coordonnees.controller');
 
-const dbConn = require('/users/jroot/webstormprojects/tfc_implement/mywork/myapp/models/bd');
+const dbConn = require('/home/samuel/Documents/Web/Mywork/Myapp/models/bd');
 
 // Retrieve all coordonnateur
 router.get('/', coordonneesController.findAll);
