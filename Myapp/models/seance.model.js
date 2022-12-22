@@ -1,5 +1,9 @@
 'use strict';
 var dbConn = require('./bd');
+const schedule = require('node-schedule');
+const pres = require('./../functions/function');
+const marquerPresence = require("../functions/function");
+
 //Cours object create
 var Seance = function(seance){
   this.idSeance = seance.idSeance;
@@ -11,19 +15,37 @@ var Seance = function(seance){
 }
   
 Seance.create = function (newSeance, result) {
+
 dbConn.query("INSERT INTO seance set ?", newSeance, function (err, res) {
     if(err) {
       console.log("error: ", err);
       result(err, null);
     }
     else{
-      console.log(res.insertidSeance);
-      result(null, res.insertSeance);
-    }
-  });
+
+            const date = Date.parse(newSeance.heure_fin);
+          //  console.log(date);
+
+     /* const date = new Date(newSeance.date,newSeance.heure_fin);
+
+      //newSeance.get
+// */
+        const idS = res.insertId;
+        console.log(idS);
+
+       const job = schedule.scheduleJob(date, function(){
+        console.log('The world is going to end today.');
+//
+        marquerPresence(idS);
+        //   marquerPresence(idS);
+       });
+            result(null, res.insertidSeance);
+
+          }
+        });
 };
-Seance.findById = function (idSeance, result) {
-dbConn.query("Select * from seance where idSeance = ? ", idSeance, function (err, res) {
+Seance.findById = function (Cours_idCours, result) {
+dbConn.query("Select * from seance where Cours_idCours = ? ", Cours_idCours, function (err, res) {
     if(err) {
       console.log("error: ", err);
       result(err, null);

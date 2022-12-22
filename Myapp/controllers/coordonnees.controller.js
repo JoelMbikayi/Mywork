@@ -22,9 +22,7 @@ exports.findAll = function(req, res) {
       Coordonnees.create(new_coord, function(err, coordonnees) {
     if (err)
         res.send(err);
-       // res.redirect('/form');
         res.json({error:false,message:"coordonnees added successfully!",data:coordonnees});
-
         });
     }
 };

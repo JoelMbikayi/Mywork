@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
   });
 
 // Retrieve a single employee with id
-router.get('/:idSeance', seanceController.findById);
+router.get('/:Cours_idCours', seanceController.findById);
 // Update a employee with id
 //router.put('/:idAuditoire', auditoireController.update);
 // Delete a employee with id

@@ -20,17 +20,10 @@ else{
 }
 });
 };
-Bracelet.findById = function (address_mac, result) {
-dbConn.query("Select * from bracelet where adress_mac = ? ", address_mac, function (err, res) {
-if(err) {
-  console.log("error: ", err);
-  result(err, null);
-}
-else{
-  result(null, res);
-}
-});
-};
+Bracelet.findById = function (adress_mac) {
+  dbConn.query("SELECT * from bracelet where adress_mac = ?", adress_mac);
+  };
+
 Bracelet.findAll = function (result) {
 dbConn.query("Select * from bracelet", function (err, res) {
 if(err) {
@@ -44,8 +37,8 @@ else{
 });
 };
 
-Bracelet.delete = function(address_mac, result){
-dbConn.query("DELETE FROM bracelet WHERE adress_mac = ?", [address_mac], function (err, res) {
+Bracelet.delete = function(adress_mac, result){
+dbConn.query("DELETE FROM bracelet WHERE adress_mac = ?", [adress_mac], function (err, res) {
 if(err) {
   console.log("error: ", err);
   result(null, err);

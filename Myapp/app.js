@@ -9,16 +9,17 @@ var logger = require('morgan');
 
 
 
-const etudiantRoutes = require('/FinalWork/Mywork/Myapp/routes/etudiant.route');
-const coordoRoutes = require('/Finalwork/Mywork/Myapp/routes/coordonnateur.route');
-const PromotionRoutes = require('/Finalwork/Mywork/Myapp/routes/promotion.route');
-const CompteRoutes = require('/Finalwork/Mywork/Myapp/routes/compte.route');
-const CoursRoutes = require('/Finalwork/Mywork/Myapp/routes/cours.route');
-const CoordonneesRoutes = require('/Finalwork/Mywork/Myapp/routes/coordonnees.route');
-const AuditoireRoutes = require('/Finalwork/Mywork/Myapp/routes/auditoire.route');
-const SeanceRoutes = require('/Finalwork/Mywork/Myapp/routes/seance.route');
-const PresenceRoutes = require('/Finalwork/Mywork/Myapp/routes/presence.route');
-const BraceletRoutes = require('/Finalwork/Mywork/Myapp/routes/bracelet.route');
+
+const etudiantRoutes = require('/Users/jroot/WebstormProjects/tfc_implement/Mywork/Myapp/routes/etudiant.route');
+const coordoRoutes = require('/Users/jroot/WebstormProjects//tfc_implement/Mywork/Myapp/routes/coordonnateur.route');
+const PromotionRoutes = require('/Users/jroot/WebstormProjects//tfc_implement/Mywork/Myapp/routes/promotion.route');
+const CompteRoutes = require('/Users/jroot/WebstormProjects/tfc_implement/Mywork/Myapp/routes/compte.route');
+const CoursRoutes = require('/Users/jroot/WebstormProjects//tfc_implement/Mywork/Myapp/routes/cours.route');
+const CoordonneesRoutes = require('/Users/jroot/WebstormProjects//tfc_implement/Mywork/Myapp/routes/coordonnees.route');
+const AuditoireRoutes = require('/Users/jroot/WebstormProjects//tfc_implement/Mywork/Myapp/routes/auditoire.route');
+const SeanceRoutes = require('/Users/jroot/WebstormProjects//tfc_implement/Mywork/Myapp/routes/seance.route');
+const PresenceRoutes = require('/Users/jroot/WebstormProjects//tfc_implement/Mywork/Myapp/routes/presence.route');
+const BraceletRoutes = require('/Users/jroot/WebstormProjects//tfc_implement/Mywork/Myapp/routes/bracelet.route');
 // using as middleware
 
 var indexRouter = require('./routes/index');
