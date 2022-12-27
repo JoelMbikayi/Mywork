@@ -6,7 +6,6 @@ var Presence = function(presence){
   this.presence = presence.presence;
   this.Etudiant_matricule=presence.Etudiant_matricule;
   this.Seance_idSeance = presence.Seance_idSeance;
-
 }
   
 Presence.create = function (newPresence, result) {
