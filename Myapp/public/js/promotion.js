@@ -155,7 +155,7 @@ function showAttendanceList(e, data){
     console.log(data)
     for (let record of data.result) {
         
-        if (record.Seance_idSeance) {
+        if (record.Seance_idSeance == e.value) {
             
             list_template += `
                 <tr>
